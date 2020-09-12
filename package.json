@@ -1,0 +1,24 @@
+{
+  "name": "jasontheiler.dev",
+  "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "format": "prettier --write \"**/*.{vue,ts,js,json,css,md}\"",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.8.1",
+    "@nuxt/typescript-runtime": "^1.0.0",
+    "@nuxtjs/pwa": "^3.0.2",
+    "nuxt": "^2.14.4"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.4",
+    "@nuxt/typescript-build": "^2.0.3",
+    "@nuxtjs/tailwindcss": "^2.1.1",
+    "prettier": "^2.1.1"
+  }
+}
