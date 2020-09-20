@@ -64,8 +64,13 @@ const config: NuxtConfig = {
    * See:
    *   - https://typescript.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
+   *   - https://marquez.co/docs/nuxt-optimized-images/
    */
-  buildModules: ["@nuxt/typescript-build", "@nuxtjs/tailwindcss"],
+  buildModules: [
+    "@nuxt/typescript-build",
+    "@nuxtjs/tailwindcss",
+    "@aceforth/nuxt-optimized-images",
+  ],
 
   /*
    * Nuxt.js modules
@@ -86,6 +91,20 @@ const config: NuxtConfig = {
    * See: https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+
+  /*
+   * Optimized images configuration
+   */
+  optimizedImages: {
+    optimizedImagesInDev: true,
+    defaultImageLoader: "responsive-loader",
+    responsive: {
+      adapter: require("responsive-loader/sharp"),
+      sizes: [3840, 2560, 1920, 960, 640],
+      placeholder: true,
+      placeholderSize: 16,
+    },
+  },
 }
 
 export default config

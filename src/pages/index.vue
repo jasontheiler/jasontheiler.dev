@@ -24,6 +24,48 @@
           GitHub
         </a>
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <OptimizedImage
+        :image="require('~/assets/images/kelp_forest.png')"
+        alt="Kelp Forest"
+      />
     </div>
   </div>
 </template>
