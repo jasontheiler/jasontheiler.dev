@@ -2,26 +2,20 @@ import { NuxtConfig } from "@nuxt/types"
 
 const config: NuxtConfig = {
   /*
-   * Nuxt rendering mode
-   * See: https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
-
-  /*
    * Nuxt target
-   * See: https://nuxtjs.org/api/configuration-target
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-target/
    */
   target: "static",
 
   /*
    * Nuxt source directory
-   * See: https://nuxtjs.org/api/configuration-srcdir
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-srcdir/
    */
   srcDir: "src",
 
   /*
    * Headers of the page
-   * See: https://nuxtjs.org/api/configuration-head
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-head/
    */
   head: {
     titleTemplate: (title) =>
@@ -49,13 +43,13 @@ const config: NuxtConfig = {
 
   /*
    * Plugins to load before mounting the app
-   * See: https://nuxtjs.org/guide/plugins
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-plugins/
    */
   plugins: [],
 
   /*
    * Auto import components
-   * See: https://nuxtjs.org/api/configuration-components
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-components/
    */
   components: true,
 
@@ -64,11 +58,13 @@ const config: NuxtConfig = {
    * See:
    *   - https://typescript.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
+   *   - https://color-mode.nuxtjs.org/
    *   - https://marquez.co/docs/nuxt-optimized-images/
    */
   buildModules: [
     "@nuxt/typescript-build",
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
     "@aceforth/nuxt-optimized-images",
   ],
 
@@ -81,19 +77,28 @@ const config: NuxtConfig = {
   modules: ["@nuxtjs/pwa", "@nuxt/content"],
 
   /*
-   * Content module configuration
-   * See: https://content.nuxtjs.org/configuration
-   */
-  content: {},
-
-  /*
    * Build configuration
    * See: https://nuxtjs.org/api/configuration-build/
    */
   build: {},
 
   /*
+   * Color mode configuration
+   * See: https://color-mode.nuxtjs.org/#configuration
+   */
+  colorMode: {
+    classSuffix: "",
+  },
+
+  /*
+   * Content module configuration
+   * See: https://content.nuxtjs.org/configuration/
+   */
+  content: {},
+
+  /*
    * Optimized images configuration
+   * See: https://marquez.co/docs/nuxt-optimized-images/configuration
    */
   optimizedImages: {
     optimizedImagesInDev: true,
