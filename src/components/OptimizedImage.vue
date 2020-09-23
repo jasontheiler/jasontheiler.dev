@@ -1,6 +1,15 @@
 <template>
-  <div class="optimized-image">
-    <div :style="{ width: '100%', paddingBottom: `${aspectRatio}%` }"></div>
+  <div
+    v-observe-visibility="{
+      callback: visibilityChanged,
+      once: true,
+      intersection: {
+        rootMargin: '512px',
+      },
+    }"
+    class="optimized-image"
+  >
+    <div :style="{ paddingBottom: `${aspectRatio}%` }" class="w-full"></div>
 
     <img :src="image.placeholder" :alt="alt" class="placeholder" />
 
@@ -64,6 +73,7 @@ export default Vue.extend({
   height: 100%;
   overflow: hidden;
 }
+
 .placeholder,
 .optimized {
   position: absolute;
@@ -74,10 +84,12 @@ export default Vue.extend({
   object-fit: cover;
   object-position: left top;
 }
+
 .optimized {
   color: transparent;
   animation: 1s fade-in;
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;

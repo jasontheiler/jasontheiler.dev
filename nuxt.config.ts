@@ -45,7 +45,7 @@ const config: NuxtConfig = {
    * Plugins to load before mounting the app
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-plugins/
    */
-  plugins: [],
+  plugins: [{ src: "~/plugins/vue-observe-visibility.ts", mode: "client" }],
 
   /*
    * Auto import components
