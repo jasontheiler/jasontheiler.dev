@@ -63,7 +63,9 @@
       <br />
 
       <OptimizedImage
-        :image="require('~/assets/images/kelp_forest.png')"
+        :srcWebp="require('~/assets/images/kelp_forest.png?webp')"
+        :src="require('~/assets/images/kelp_forest.png')"
+        :srcPlaceholder="require('~/assets/images/kelp_forest.png?lqip')"
         alt="Kelp Forest"
       />
     </div>

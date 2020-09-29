@@ -1,7 +1,7 @@
 <template>
   <div
     v-observe-visibility="{
-      callback: visibilityChanged,
+      callback: setIsVisible,
       once: true,
       intersection: {
         rootMargin: '512px',
@@ -9,17 +9,16 @@
     }"
     class="optimized-image"
   >
-    <div :style="{ paddingBottom: `${aspectRatio}%` }" class="w-full"></div>
+    <!-- <div :style="{ paddingBottom: `${aspectRatio}%` }" class="w-full"></div> -->
 
-    <img :src="image.placeholder" :alt="alt" class="placeholder" />
+    <img :src="srcPlaceholder" :alt="alt" class="placeholder" />
 
-    <picture v-if="isVisible">
-      <img
-        :srcSet="image.srcSet"
-        :src="image.src"
-        :alt="alt"
-        class="optimized"
-      />
+    <picture v-if="isVisible" class="optimized">
+      <source :srcset="srcWebp" :alt="alt" />
+
+      <source :srcset="src" :alt="alt" />
+
+      <img :src="src" :alt="alt" />
     </picture>
   </div>
 </template>
@@ -29,14 +28,18 @@ import Vue from "vue"
 
 export default Vue.extend({
   props: {
-    image: {
-      type: Object as () => {
-        placeholder: string
-        srcSet: string
-        src: string
-        width: number
-        height: number
-      },
+    srcWebp: {
+      type: String as () => string,
+      required: true,
+    },
+
+    src: {
+      type: String as () => string,
+      required: true,
+    },
+
+    srcPlaceholder: {
+      type: String as () => string,
       required: true,
     },
 
@@ -52,14 +55,14 @@ export default Vue.extend({
     }
   },
 
-  computed: {
-    aspectRatio() {
-      return (this.image.height / this.image.width) * 100
-    },
-  },
+  // computed: {
+  //   aspectRatio() {
+  //     return (height / width) * 100
+  //   },
+  // },
 
   methods: {
-    visibilityChanged(isVisible: boolean) {
+    setIsVisible(isVisible: boolean) {
       this.isVisible = isVisible
     },
   },
@@ -71,14 +74,10 @@ export default Vue.extend({
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .placeholder,
 .optimized {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -86,6 +85,9 @@ export default Vue.extend({
 }
 
 .optimized {
+  position: absolute;
+  left: 0;
+  top: 0;
   color: transparent;
   animation: 1s fade-in;
 }

@@ -102,13 +102,6 @@ const config: NuxtConfig = {
    */
   optimizedImages: {
     optimizedImagesInDev: true,
-    defaultImageLoader: "responsive-loader",
-    responsive: {
-      adapter: require("responsive-loader/sharp"),
-      sizes: [3840, 2560, 1920, 960, 640],
-      placeholder: true,
-      placeholderSize: 16,
-    },
   },
 }
 
