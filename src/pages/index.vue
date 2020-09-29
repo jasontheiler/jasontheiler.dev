@@ -49,25 +49,22 @@
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <OptimizedImage
-        :srcWebp="require('~/assets/images/kelp_forest.png?webp')"
+        :src-webp="require('~/assets/images/kelp_forest.png?webp')"
         :src="require('~/assets/images/kelp_forest.png')"
-        :srcPlaceholder="require('~/assets/images/kelp_forest.png?lqip')"
+        :src-placeholder="require('~/assets/images/kelp_forest.png?lqip')"
         alt="Kelp Forest"
       />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </div>
 </template>

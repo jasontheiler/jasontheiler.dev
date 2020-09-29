@@ -4,21 +4,39 @@
       callback: setIsVisible,
       once: true,
       intersection: {
-        rootMargin: '512px',
+        rootMargin: '256px',
       },
     }"
-    class="optimized-image"
+    class="relative w-full h-full overflow-hidden"
   >
-    <!-- <div :style="{ paddingBottom: `${aspectRatio}%` }" class="w-full"></div> -->
+    <img
+      :src="srcPlaceholder"
+      :alt="alt"
+      class="w-full h-full object-cover object-center text-transparent"
+    />
 
-    <img :src="srcPlaceholder" :alt="alt" class="placeholder" />
+    <picture
+      v-if="isVisible"
+      :class="['absolute inset-0', isLoaded ? 'loaded' : 'invisible']"
+    >
+      <source
+        :srcset="srcWebp"
+        :alt="alt"
+        class="w-full h-full object-cover object-center text-transparent"
+      />
 
-    <picture v-if="isVisible" class="optimized">
-      <source :srcset="srcWebp" :alt="alt" />
+      <source
+        :srcset="src"
+        :alt="alt"
+        class="w-full h-full object-cover object-center text-transparent"
+      />
 
-      <source :srcset="src" :alt="alt" />
-
-      <img :src="src" :alt="alt" />
+      <img
+        @load.once="() => setIsLoaded(true)"
+        :src="src"
+        :alt="alt"
+        class="w-full h-full object-cover object-center text-transparent"
+      />
     </picture>
   </div>
 </template>
@@ -52,43 +70,24 @@ export default Vue.extend({
   data() {
     return {
       isVisible: false,
+      isLoaded: false,
     }
   },
-
-  // computed: {
-  //   aspectRatio() {
-  //     return (height / width) * 100
-  //   },
-  // },
 
   methods: {
     setIsVisible(isVisible: boolean) {
       this.isVisible = isVisible
+    },
+
+    setIsLoaded(isLoaded: boolean) {
+      this.isLoaded = isLoaded
     },
   },
 })
 </script>
 
 <style scoped>
-.optimized-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.placeholder,
-.optimized {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: left top;
-}
-
-.optimized {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: transparent;
+.loaded {
   animation: 1s fade-in;
 }
 
@@ -96,6 +95,7 @@ export default Vue.extend({
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
