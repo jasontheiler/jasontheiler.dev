@@ -1,5 +1,5 @@
 /*
- * TailwindCSS configuration File
+ * TailwindCSS configuration
  *
  * Docs: https://tailwindcss.com/docs/configuration/
  * Default: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js
@@ -19,13 +19,12 @@ module.exports = {
   variants: {},
   plugins: [],
   purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === "production",
     content: [
-      "components/**/*.vue",
-      "layouts/**/*.vue",
-      "pages/**/*.vue",
-      "plugins/**/*.{ts,js}",
+      "src/components/**/*.vue",
+      "src/layouts/**/*.vue",
+      "src/pages/**/*.vue",
+      "src/plugins/**/*.{ts,js}",
       "nuxt.config.ts",
     ],
   },
