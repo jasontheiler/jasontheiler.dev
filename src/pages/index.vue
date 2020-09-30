@@ -50,12 +50,7 @@
       <br />
       <br />
 
-      <OptimizedImage
-        :src-webp="require('~/assets/images/kelp_forest.png?webp')"
-        :src="require('~/assets/images/kelp_forest.png')"
-        :src-placeholder="require('~/assets/images/kelp_forest.png?lqip')"
-        alt="Kelp Forest"
-      />
+      <OptimizedImage image="kelp_forest.png" alt="Kelp Forest" />
 
       <br />
       <br />

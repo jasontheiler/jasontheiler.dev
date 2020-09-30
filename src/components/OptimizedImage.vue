@@ -10,7 +10,7 @@
     class="relative w-full h-full overflow-hidden"
   >
     <img
-      :src="srcPlaceholder"
+      :src="require(`~/assets/images/${image}?lqip`)"
       :alt="alt"
       class="w-full h-full object-cover object-center text-transparent"
     />
@@ -20,20 +20,20 @@
       :class="['absolute inset-0', isLoaded ? 'loaded' : 'invisible']"
     >
       <source
-        :srcset="srcWebp"
+        :srcset="require(`~/assets/images/${image}?webp`)"
         :alt="alt"
         class="w-full h-full object-cover object-center text-transparent"
       />
 
       <source
-        :srcset="src"
+        :srcset="require(`~/assets/images/${image}`)"
         :alt="alt"
         class="w-full h-full object-cover object-center text-transparent"
       />
 
       <img
         @load.once="() => setIsLoaded(true)"
-        :src="src"
+        :src="require(`~/assets/images/${image}`)"
         :alt="alt"
         class="w-full h-full object-cover object-center text-transparent"
       />
@@ -46,17 +46,7 @@ import Vue from "vue"
 
 export default Vue.extend({
   props: {
-    srcWebp: {
-      type: String as () => string,
-      required: true,
-    },
-
-    src: {
-      type: String as () => string,
-      required: true,
-    },
-
-    srcPlaceholder: {
+    image: {
       type: String as () => string,
       required: true,
     },
