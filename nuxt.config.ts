@@ -14,25 +14,20 @@ const config: NuxtConfig = {
   srcDir: "src",
 
   /*
+   * Nuxt runtime configuration
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config
+   */
+  publicRuntimeConfig: {
+    baseUrl: process.env.BASE_URL,
+  },
+
+  /*
    * Headers of the page
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-head/
    */
   head: {
     titleTemplate: (title) =>
       title ? `${title} | Jason Theiler` : "Jason Theiler",
-    meta: [
-      { charset: "utf-8" },
-      {
-        hid: "viewport",
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-      {
-        hid: "description",
-        name: "description",
-        content: "Work in progress!",
-      },
-    ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
@@ -83,6 +78,28 @@ const config: NuxtConfig = {
   build: {},
 
   /*
+   * PWA configuration
+   * See: https://pwa.nuxtjs.org/setup#configuration
+   */
+  pwa: {
+    meta: {
+      author: "Jason Theiler",
+      description: "Work in progress!",
+      ogSiteName: "Jason Theiler",
+      ogTitle: null,
+      ogHost: process.env.BASE_URL,
+      ogImage: "/image.png",
+      twitterCard: "summary_large_image",
+    },
+
+    manifest: {
+      name: "Jason Theiler",
+      short_name: "J. Theiler",
+      description: "Work in progress!",
+    },
+  },
+
+  /*
    * Color mode configuration
    * See: https://color-mode.nuxtjs.org/#configuration
    */
@@ -91,7 +108,7 @@ const config: NuxtConfig = {
   },
 
   /*
-   * Content module configuration
+   * Content configuration
    * See: https://content.nuxtjs.org/configuration/
    */
   content: {},
