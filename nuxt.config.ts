@@ -8,12 +8,6 @@ const config: NuxtConfig = {
   target: "static",
 
   /*
-   * Nuxt source directory
-   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-srcdir/
-   */
-  srcDir: "src",
-
-  /*
    * Nuxt runtime configuration
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config
    */
