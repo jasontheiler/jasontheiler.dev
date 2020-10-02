@@ -11,7 +11,7 @@ import { getPageHead } from "~/utils"
 
 export default {
   async asyncData({ $content }) {
-    const posts = await $content("posts").only(["title"]).fetch()
+    const posts = await $content("posts").only(["path", "title"]).fetch()
 
     return { posts }
   },
