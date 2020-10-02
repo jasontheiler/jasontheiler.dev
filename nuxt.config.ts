@@ -86,7 +86,7 @@ const config: NuxtConfig = {
       author: "Jason Theiler",
       description: "Work in progress!",
       ogSiteName: "Jason Theiler",
-      ogTitle: null,
+      ogTitle: "Jason Theiler",
       ogHost: process.env.BASE_URL,
       ogImage: "/image.png",
       twitterCard: "summary_large_image",

@@ -1,6 +1,6 @@
 interface Head {
   instance: Vue
-  title: string
+  title?: string
   description?: string
   image?: string
 }
@@ -8,16 +8,18 @@ interface Head {
 export const getPageHead = ({ instance, title, description, image }: Head) => {
   const meta = [
     {
-      hid: "og:title",
-      name: "og:title",
-      content: title,
-    },
-    {
       hid: "og:url",
       name: "og:url",
       content: instance.$config.baseUrl + instance.$route.path,
     },
   ]
+
+  if (title)
+    meta.push({
+      hid: "og:title",
+      name: "og:title",
+      content: title,
+    })
 
   if (description)
     meta.push(

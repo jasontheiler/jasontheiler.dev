@@ -41,18 +41,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue"
-
-export default Vue.extend({
+<script>
+export default {
   props: {
     image: {
-      type: String as () => string,
+      type: String,
       required: true,
     },
 
     alt: {
-      type: String as () => string,
+      type: String,
       required: true,
     },
   },
@@ -65,15 +63,15 @@ export default Vue.extend({
   },
 
   methods: {
-    setIsVisible(isVisible: boolean) {
+    setIsVisible(isVisible) {
       this.isVisible = isVisible
     },
 
-    setIsLoaded(isLoaded: boolean) {
+    setIsLoaded(isLoaded) {
       this.isLoaded = isLoaded
     },
   },
-})
+}
 </script>
 
 <style scoped>
