@@ -9,7 +9,7 @@ const config: NuxtConfig = {
 
   /*
    * Nuxt runtime configuration
-   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config/
    */
   publicRuntimeConfig: {
     baseUrl: process.env.BASE_URL,
@@ -24,11 +24,6 @@ const config: NuxtConfig = {
       title ? `${title} | Jason Theiler` : "Jason Theiler",
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-
-  /*
-   * Global CSS
-   */
-  css: [],
 
   /*
    * Plugins to load before mounting the app
@@ -58,22 +53,33 @@ const config: NuxtConfig = {
   ],
 
   /*
+   * Color mode configuration
+   * See: https://color-mode.nuxtjs.org/#configuration
+   */
+  colorMode: {
+    classSuffix: "",
+  },
+
+  /*
+   * Optimized images configuration
+   * See: https://marquez.co/docs/nuxt-optimized-images/configuration/
+   */
+  optimizedImages: {
+    optimizedImagesInDev: true,
+  },
+
+  /*
    * Nuxt.js modules
    * See:
    *   - https://pwa.nuxtjs.org/
+   *   - https://github.com/nuxt-community/robots-module/
    *   - https://content.nuxtjs.org/
    */
-  modules: ["@nuxtjs/pwa", "@nuxt/content"],
-
-  /*
-   * Build configuration
-   * See: https://nuxtjs.org/api/configuration-build/
-   */
-  build: {},
+  modules: ["@nuxtjs/pwa", "@nuxtjs/robots", "@nuxt/content"],
 
   /*
    * PWA configuration
-   * See: https://pwa.nuxtjs.org/setup#configuration
+   * See: https://pwa.nuxtjs.org/setup/#configuration
    */
   pwa: {
     meta: {
@@ -94,26 +100,10 @@ const config: NuxtConfig = {
   },
 
   /*
-   * Color mode configuration
-   * See: https://color-mode.nuxtjs.org/#configuration
-   */
-  colorMode: {
-    classSuffix: "",
-  },
-
-  /*
    * Content configuration
    * See: https://content.nuxtjs.org/configuration/
    */
   content: {},
-
-  /*
-   * Optimized images configuration
-   * See: https://marquez.co/docs/nuxt-optimized-images/configuration
-   */
-  optimizedImages: {
-    optimizedImagesInDev: true,
-  },
 }
 
 export default config
