@@ -39,7 +39,7 @@ const config: NuxtConfig = {
   components: true,
 
   /*
-   * Nuxt.js dev-modules
+   * Nuxt.js build modules
    * See:
    *   - https://typescript.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
@@ -72,17 +72,23 @@ const config: NuxtConfig = {
   /*
    * Nuxt.js modules
    * See:
+   *   - https://content.nuxtjs.org/
    *   - https://pwa.nuxtjs.org/
    *   - https://github.com/nuxt-community/robots-module/
    *   - https://github.com/nuxt-community/sitemap-module/
-   *   - https://content.nuxtjs.org/
    */
   modules: [
+    "@nuxt/content",
     "@nuxtjs/pwa",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
-    "@nuxt/content",
   ],
+
+  /*
+   * Content configuration
+   * See: https://content.nuxtjs.org/configuration/
+   */
+  content: {},
 
   /*
    * PWA configuration
@@ -118,12 +124,6 @@ const config: NuxtConfig = {
       return Array.isArray(posts) ? posts.map((post) => post.path) : posts.path
     },
   },
-
-  /*
-   * Content configuration
-   * See: https://content.nuxtjs.org/configuration/
-   */
-  content: {},
 }
 
 export default config
