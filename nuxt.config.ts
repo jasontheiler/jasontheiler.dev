@@ -1,4 +1,5 @@
 import { NuxtConfig } from "@nuxt/types"
+import { $content } from "@nuxt/content"
 
 const config: NuxtConfig = {
   /*
@@ -73,9 +74,15 @@ const config: NuxtConfig = {
    * See:
    *   - https://pwa.nuxtjs.org/
    *   - https://github.com/nuxt-community/robots-module/
+   *   - https://github.com/nuxt-community/sitemap-module/
    *   - https://content.nuxtjs.org/
    */
-  modules: ["@nuxtjs/pwa", "@nuxtjs/robots", "@nuxt/content"],
+  modules: [
+    "@nuxtjs/pwa",
+    "@nuxtjs/robots",
+    "@nuxtjs/sitemap",
+    "@nuxt/content",
+  ],
 
   /*
    * PWA configuration
@@ -96,6 +103,19 @@ const config: NuxtConfig = {
       name: "Jason Theiler",
       short_name: "J. Theiler",
       description: "Work in progress!",
+    },
+  },
+
+  /*
+   * Sitemap configuration
+   * See: https://github.com/nuxt-community/sitemap-module/#configuration
+   */
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    async routes() {
+      const posts = await $content("posts").only(["path"]).fetch()
+
+      return Array.isArray(posts) ? posts.map((post) => post.path) : posts.path
     },
   },
 
