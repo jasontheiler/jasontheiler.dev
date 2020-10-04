@@ -1,5 +1,5 @@
 /*
- * TailwindCSS configuration
+ * Tailwind CSS configuration
  *
  * Docs: https://tailwindcss.com/docs/configuration/
  * Default: https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js
@@ -15,9 +15,15 @@ module.exports = {
     darkModeVariant: true,
   },
   dark: "class",
-  theme: {},
+  theme: {
+    shadowOutline: { shadow: "0 0 0 3px", alpha: "0.5" },
+  },
   variants: {},
-  plugins: [],
+  /*
+   * See:
+   *  - https://github.com/octoper/tailwindcss-shadow-outline-colors
+   */
+  plugins: [require("tailwindcss-shadow-outline-colors")()],
   purge: {
     enabled: process.env.NODE_ENV === "production",
     content: [

@@ -28,6 +28,7 @@
     "imagemin-pngquant": "^9.0.1",
     "lqip-loader": "^2.2.1",
     "prettier": "^2.1.2",
+    "tailwindcss-shadow-outline-colors": "0.0.8",
     "webp-loader": "^0.6.0"
   }
 }
