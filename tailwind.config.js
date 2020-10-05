@@ -15,15 +15,9 @@ module.exports = {
     darkModeVariant: true,
   },
   dark: "class",
-  theme: {
-    shadowOutline: { shadow: "0 0 0 3px", alpha: "0.5" },
-  },
+  theme: {},
   variants: {},
-  /*
-   * See:
-   *  - https://github.com/octoper/tailwindcss-shadow-outline-colors
-   */
-  plugins: [require("tailwindcss-shadow-outline-colors")()],
+  plugins: [require("./tailwind/boxShadowOutlineColored")()],
   purge: {
     enabled: process.env.NODE_ENV === "production",
     content: [
