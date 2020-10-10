@@ -17,7 +17,7 @@ module.exports = {
   dark: "class",
   theme: {},
   variants: {},
-  plugins: [require("./tailwind/boxShadowOutlineColored")()],
+  plugins: [require("tailwindcss-box-shadow-outline-extended")],
   purge: {
     enabled: process.env.NODE_ENV === "production",
     content: [
