@@ -1,6 +1,6 @@
 {
+  "private": true,
   "name": "jasontheiler.dev",
-  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "format": "prettier --write \"**/*.{vue,ts,js,json,css,md}\"",
