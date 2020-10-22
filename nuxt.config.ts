@@ -3,13 +3,13 @@ import { $content } from "@nuxt/content"
 
 const config: NuxtConfig = {
   /*
-   * Nuxt target
+   * Target configuration
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-target/
    */
   target: "static",
 
   /*
-   * Nuxt runtime configuration
+   * Runtime configuration
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config/
    */
   publicRuntimeConfig: {
@@ -27,10 +27,19 @@ const config: NuxtConfig = {
   },
 
   /*
+   * CSS to set globally
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
+   */
+  css: ["~/assets/css/main.css"],
+
+  /*
    * Plugins to load before mounting the app
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-plugins/
    */
-  plugins: [{ src: "~/plugins/vue-observe-visibility.ts", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/focus-visible.ts", mode: "client" },
+    { src: "~/plugins/vue-observe-visibility.ts", mode: "client" },
+  ],
 
   /*
    * Auto import components
@@ -39,7 +48,7 @@ const config: NuxtConfig = {
   components: true,
 
   /*
-   * Nuxt.js build modules
+   * Build modules
    * See:
    *   - https://typescript.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
@@ -52,6 +61,18 @@ const config: NuxtConfig = {
     "@nuxtjs/color-mode",
     "@aceforth/nuxt-optimized-images",
   ],
+
+  /*
+   * Build configuration
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-build/
+   */
+  build: {
+    postcss: {
+      plugins: {
+        "postcss-focus-visible": {},
+      },
+    },
+  },
 
   /*
    * Color mode configuration
@@ -70,7 +91,7 @@ const config: NuxtConfig = {
   },
 
   /*
-   * Nuxt.js modules
+   * Modules
    * See:
    *   - https://content.nuxtjs.org/
    *   - https://pwa.nuxtjs.org/

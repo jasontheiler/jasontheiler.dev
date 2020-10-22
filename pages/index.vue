@@ -71,6 +71,7 @@ export default {
   head() {
     return getPageHead({
       instance: this,
+      title: null,
     })
   },
 }

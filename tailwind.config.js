@@ -9,6 +9,8 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
+    defaultLineHeights: true,
+    standardFontWeights: true,
   },
   // See: https://github.com/tailwindlabs/tailwindcss/pull/2279/
   experimental: {
@@ -16,7 +18,12 @@ module.exports = {
   },
   dark: "class",
   theme: {},
-  variants: {},
+  variants: {
+    backgroundColor: ["responsive", "hover", "focus", "active"],
+    outline: ["responsive", "focus", "focus-visible"],
+    boxShadowOutline: ["responsive", "hover", "focus", "focus-visible"],
+    boxShadowOutlineOpacity: ["responsive", "hover", "focus", "focus-visible"],
+  },
   plugins: [require("tailwindcss-box-shadow-outline-extended")],
   purge: {
     enabled: process.env.NODE_ENV === "production",
