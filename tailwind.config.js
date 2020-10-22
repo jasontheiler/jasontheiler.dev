@@ -19,7 +19,6 @@ module.exports = {
   dark: "class",
   theme: {},
   variants: {
-    backgroundColor: ["responsive", "hover", "focus", "active"],
     outline: ["responsive", "focus", "focus-visible"],
     boxShadowOutline: ["responsive", "hover", "focus", "focus-visible"],
     boxShadowOutlineOpacity: ["responsive", "hover", "focus", "focus-visible"],

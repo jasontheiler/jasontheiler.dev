@@ -27,12 +27,6 @@ const config: NuxtConfig = {
   },
 
   /*
-   * CSS to set globally
-   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
-   */
-  css: ["~/assets/css/main.css"],
-
-  /*
    * Plugins to load before mounting the app
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-plugins/
    */
