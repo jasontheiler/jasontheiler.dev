@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="w-full max-w-screen-lg mx-auto px-4">
     <li v-for="{ path, title } in posts" :key="path">
       <nuxt-link :to="path">{{ title }}</nuxt-link>
     </li>

@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="w-full max-w-screen-lg mx-auto px-4">
     <nuxt-content :document="post" />
   </article>
 </template>
