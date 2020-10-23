@@ -22,6 +22,17 @@ body {
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
+  @apply outline-none;
+}
+
+.page-enter-active,
+.page-leave-active {
+  @apply transition-opacity;
+  @apply duration-75;
+}
+
+.page-enter,
+.page-leave-to {
+  @apply opacity-0;
 }
 </style>
