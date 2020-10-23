@@ -5,23 +5,23 @@
     <div
       class="w-full max-w-screen-lg h-full mx-auto px-4 flex justify-between items-center"
     >
-      <nuxt-link to="/" class="font-bold text-2xl"
+      <NuxtLink to="/" class="font-bold text-2xl"
         ><span class="sm:hidden">J.</span
         ><span class="hidden sm:inline">Jason</span
         ><span class="text-black dark:text-white">Theiler</span>
-      </nuxt-link>
+      </NuxtLink>
 
       <nav class="flex items-center font-medium">
-        <nuxt-link
+        <NuxtLink
           to="/projects"
           class="ml-4 sm:ml-8 hover:text-black dark:hover:text-white transition-colors duration-150"
-          >Projects</nuxt-link
+          >Projects</NuxtLink
         >
 
-        <nuxt-link
+        <NuxtLink
           to="/posts"
           class="ml-4 sm:ml-8 hover:text-black dark:hover:text-white transition-colors duration-150"
-          >Posts</nuxt-link
+          >Posts</NuxtLink
         >
 
         <ThemeToggle class="ml-4 sm:ml-8" />

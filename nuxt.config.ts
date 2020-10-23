@@ -134,9 +134,13 @@ const config: NuxtConfig = {
   sitemap: {
     hostname: process.env.BASE_URL,
     async routes() {
-      const posts = await $content("posts").only(["path"]).fetch()
+      const posts = await $content("posts").only(["slug"]).fetch()
 
-      return Array.isArray(posts) ? posts.map((post) => post.path) : posts.path
+      const getPostPath = (slug: string) => `/posts/${slug}`
+
+      return Array.isArray(posts)
+        ? posts.map((post) => getPostPath(post.slug))
+        : getPostPath(posts.slug)
     },
   },
 }

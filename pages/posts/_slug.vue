@@ -9,9 +9,18 @@ import { getPageHead } from "~/utils"
 
 export default {
   async asyncData({ $content, params }) {
-    const post = await $content("posts", params.post).fetch()
+    const post = await $content("posts", params.slug).fetch()
+    const [prevPost, nextPost] = await $content("posts")
+      .only(["slug", "title"])
+      .sortBy("createdAt", "asc")
+      .surround(params.slug)
+      .fetch()
 
-    return { post }
+    return {
+      post,
+      prevPost,
+      nextPost,
+    }
   },
 
   head() {
