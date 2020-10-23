@@ -12,6 +12,8 @@
 body {
   @apply bg-white;
   @apply text-gray-600;
+  @apply transition-colors;
+  @apply duration-150;
 }
 
 .dark body {
