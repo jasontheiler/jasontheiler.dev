@@ -24,11 +24,13 @@ body {
 .js-focus-visible :focus:not(.focus-visible) {
   @apply outline-none;
 }
+</style>
 
+<style scoped>
 .page-enter-active,
 .page-leave-active {
   @apply transition-opacity;
-  @apply duration-75;
+  @apply duration-150;
 }
 
 .page-enter,

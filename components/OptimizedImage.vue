@@ -17,7 +17,7 @@
 
     <picture
       v-if="isVisible"
-      :class="['absolute inset-0', isLoaded ? 'loaded' : 'invisible']"
+      :class="['absolute inset-0', isLoaded ? 'fade-in' : 'invisible']"
     >
       <source
         :srcset="require(`~/assets/images/${image}?webp`)"
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style scoped>
-.loaded {
+.fade-in {
   animation: 1s fade-in;
 }
 
