@@ -16,6 +16,8 @@
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "focus-visible": "^5.2.0",
+    "fontsource-cascadia-code": "^3.0.5",
+    "fontsource-inter": "^3.0.5",
     "nuxt": "^2.14.7",
     "vue-observe-visibility": "^0.4.6"
   },

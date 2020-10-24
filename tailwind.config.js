@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
 /*
  * Tailwind CSS configuration
  *
@@ -31,6 +33,11 @@ module.exports = {
           800: "#424242",
           900: "#212121",
         },
+      },
+
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans],
+        mono: ['"Cascadia Code"', ...fontFamily.mono],
       },
     },
   },

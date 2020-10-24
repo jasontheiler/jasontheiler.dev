@@ -27,11 +27,22 @@ const config: NuxtConfig = {
   },
 
   /*
+   * CSS to add globally
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
+   */
+  css: [
+    "fontsource-inter/400.css",
+    "fontsource-inter/500.css",
+    "fontsource-inter/700.css",
+    "fontsource-cascadia-code",
+  ],
+
+  /*
    * Plugins to load before mounting the app
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-plugins/
    */
   plugins: [
-    { src: "~/plugins/focus-visible.ts", mode: "client" },
+    { src: "~/plugins/polyfills.ts", mode: "client" },
     { src: "~/plugins/vue-observe-visibility.ts", mode: "client" },
   ],
 
