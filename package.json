@@ -19,6 +19,7 @@
     "fontsource-cascadia-code": "^3.0.5",
     "fontsource-inter": "^3.0.5",
     "nuxt": "^2.14.7",
+    "shiki": "^0.2.6",
     "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {

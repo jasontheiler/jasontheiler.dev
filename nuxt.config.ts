@@ -1,5 +1,7 @@
 import { NuxtConfig } from "@nuxt/types"
 import { $content } from "@nuxt/content"
+import { ThematicBlock } from "@nuxt/content/types/highlighter"
+import { getHighlighter } from "shiki"
 
 const config: NuxtConfig = {
   /*
@@ -114,7 +116,21 @@ const config: NuxtConfig = {
    * Content configuration
    * See: https://content.nuxtjs.org/configuration/
    */
-  content: {},
+  content: {
+    markdown: {
+      async highlighter() {
+        const highlighter = await getHighlighter({
+          theme: "dark-plus",
+        })
+
+        return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
+          (thematicBlock?.fileName
+            ? `<span class="filename">${thematicBlock?.fileName}</span>`
+            : "") +
+          (highlighter.codeToHtml ? highlighter.codeToHtml(rawCode, lang) : "")
+      },
+    },
+  },
 
   /*
    * PWA configuration
