@@ -6,10 +6,12 @@
       <a
         href="https://github.com/jasontheiler/"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         class="hover:text-black dark:hover:text-white transition-colors duration-150"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10 inline">
+          <title>GitHub</title>
+
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"

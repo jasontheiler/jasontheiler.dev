@@ -12,6 +12,8 @@
         stroke="currentColor"
         class="w-6 h-6"
       >
+        <title>Dark</title>
+
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -28,6 +30,8 @@
         stroke="currentColor"
         class="w-6 h-6"
       >
+        <title>Light</title>
+
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -44,6 +48,8 @@
         stroke="currentColor"
         class="w-6 h-6"
       >
+        <title>System</title>
+
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
