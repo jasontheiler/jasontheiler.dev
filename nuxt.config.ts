@@ -119,15 +119,32 @@ const config: NuxtConfig = {
   content: {
     markdown: {
       async highlighter() {
-        const highlighter = await getHighlighter({
+        const lightHighlighter = await getHighlighter({
+          theme: "light-plus",
+        })
+
+        const darkHighlighter = await getHighlighter({
           theme: "dark-plus",
         })
 
         return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
-          (thematicBlock?.fileName
-            ? `<span class="filename">${thematicBlock?.fileName}</span>`
-            : "") +
-          (highlighter.codeToHtml ? highlighter.codeToHtml(rawCode, lang) : "")
+          `
+          <span class="filename">${thematicBlock?.fileName || ""}</span>
+
+          <div class="light">
+            ${
+              lightHighlighter.codeToHtml &&
+              lightHighlighter.codeToHtml(rawCode, lang || "markdown")
+            }
+          </div>
+
+          <div class="dark">
+            ${
+              darkHighlighter.codeToHtml &&
+              darkHighlighter.codeToHtml(rawCode, lang || "markdown")
+            }
+          </div>
+          `
       },
     },
   },

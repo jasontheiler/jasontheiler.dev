@@ -35,3 +35,31 @@ export default {
   },
 }
 </script>
+
+<style>
+.nuxt-content .nuxt-content-highlight {
+  @apply relative;
+}
+
+.nuxt-content .nuxt-content-highlight .filename {
+  @apply absolute;
+  @apply right-0;
+  @apply top-0;
+  @apply px-2;
+  @apply py-1;
+  @apply font-medium;
+  @apply text-sm;
+}
+
+.dark .nuxt-content .nuxt-content-highlight .light {
+  @apply hidden;
+}
+
+.nuxt-content .nuxt-content-highlight .dark {
+  @apply hidden;
+}
+
+.dark .nuxt-content .nuxt-content-highlight .dark {
+  @apply block;
+}
+</style>

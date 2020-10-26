@@ -1,1 +1,1 @@
-export * from "~/utils/getPageHead"
+export * from "./getPageHead"
