@@ -47,7 +47,10 @@ module.exports = {
     boxShadowOutline: ["responsive", "hover", "focus", "focus-visible"],
     boxShadowOutlineOpacity: ["responsive", "hover", "focus", "focus-visible"],
   },
-  plugins: [require("tailwindcss-box-shadow-outline-extended")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwindcss-box-shadow-outline-extended"),
+  ],
   purge: {
     enabled: process.env.NODE_ENV === "production",
     content: [
