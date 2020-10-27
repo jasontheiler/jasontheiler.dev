@@ -127,36 +127,30 @@ const config: NuxtConfig = {
           theme: "dark-plus",
         })
 
-        const getHighlightedBlock = (
-          lightHighlightedBlock?: string,
-          darkHighlightedBlock?: string,
-          fileName?: string
-        ) => {
-          const fileNameElement = fileName
-            ? `<div class="filename">${fileName}</div>`
-            : ""
+        return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
+          `
+          <div class="code-block">
+            ${
+              thematicBlock?.fileName
+                ? `<span class="file-name">${thematicBlock.fileName}</span>`
+                : ""
+            }
 
-          return `
-          <div class="light">
-            ${fileNameElement}
-            ${lightHighlightedBlock}
-          </div>
+            <div class="light">
+              ${
+                lightHighlighter.codeToHtml &&
+                lightHighlighter.codeToHtml(rawCode, lang || "markdown")
+              }
+            </div>
 
-          <div class="dark">
-            ${fileNameElement}
-            ${darkHighlightedBlock}
+            <div class="dark">
+              ${
+                darkHighlighter.codeToHtml &&
+                darkHighlighter.codeToHtml(rawCode, lang || "markdown")
+              }
+            </div>
           </div>
           `
-        }
-
-        return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
-          getHighlightedBlock(
-            lightHighlighter.codeToHtml &&
-              lightHighlighter.codeToHtml(rawCode, lang || "markdown"),
-            darkHighlighter.codeToHtml &&
-              darkHighlighter.codeToHtml(rawCode, lang || "markdown"),
-            thematicBlock?.fileName
-          )
       },
     },
   },

@@ -48,7 +48,7 @@ export default {
 }
 
 .prose a {
-  @apply text-green-400;
+  @apply text-indigo-600;
   @apply no-underline;
   @apply transition-colors;
   @apply duration-150;
@@ -56,6 +56,10 @@ export default {
 
 .prose a:hover {
   @apply text-black;
+}
+
+.dark .prose a {
+  @apply text-indigo-500;
 }
 
 .dark .prose a:hover {
@@ -78,12 +82,12 @@ export default {
   @apply text-white;
 }
 
-.prose h1:before,
-.prose h2:before,
-.prose h3:before,
-.prose h4:before,
-.prose h5:before,
-.prose h6:before {
+.prose h1::before,
+.prose h2::before,
+.prose h3::before,
+.prose h4::before,
+.prose h5::before,
+.prose h6::before {
   content: "";
   @apply block;
   @apply -mt-16;
@@ -92,31 +96,21 @@ export default {
   @apply pointer-events-none;
 }
 
-.prose h1 > a:before,
-.prose h2 > a:before,
-.prose h3 > a:before,
-.prose h4 > a:before,
-.prose h5 > a:before,
-.prose h6 > a:before {
+.prose h1 > a:first-child::before,
+.prose h2 > a:first-child::before,
+.prose h3 > a:first-child::before,
+.prose h4 > a:first-child::before,
+.prose h5 > a:first-child::before,
+.prose h6 > a:first-child::before {
   content: "#";
   @apply mr-2;
 }
 
-.prose .light,
-.prose .dark {
+.prose .code-block {
   @apply relative;
 }
 
-.dark .prose .dark {
-  @apply block;
-}
-
-.prose .dark,
-.dark .prose .light {
-  @apply hidden;
-}
-
-.prose .filename {
+.prose .code-block .file-name {
   @apply absolute;
   @apply right-0;
   @apply top-0;
@@ -126,7 +120,17 @@ export default {
   @apply text-sm;
 }
 
-.prose .filename ~ pre {
+.prose .code-block .file-name ~ * pre {
   @apply pt-8;
+}
+
+.prose .code-block .light,
+.dark .prose .code-block .dark {
+  @apply block;
+}
+
+.prose .code-block .dark,
+.dark .prose .code-block .light {
+  @apply hidden;
 }
 </style>
