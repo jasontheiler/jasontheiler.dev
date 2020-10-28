@@ -1,5 +1,5 @@
 <template>
-  <article class="w-full max-w-screen-lg mx-auto px-4 prose">
+  <article class="w-full max-w-screen-lg mx-auto px-4 prose overflow-hidden">
     <nuxt-content :document="post" />
   </article>
 </template>
@@ -47,23 +47,70 @@ export default {
   @apply text-gray-500;
 }
 
-.prose a {
+.prose strong {
+  @apply text-black;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose strong {
+  @apply text-white;
+}
+
+.prose code {
+  @apply text-black;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose code {
+  @apply text-white;
+}
+
+.prose a,
+.prose a strong,
+.prose a code {
   @apply text-indigo-600;
   @apply no-underline;
   @apply transition-colors;
   @apply duration-150;
 }
 
-.prose a:hover {
+.prose a:hover,
+.prose a:hover strong,
+.prose a:hover code {
   @apply text-black;
 }
 
-.dark .prose a {
+.dark .prose a,
+.dark .prose a strong,
+.dark .prose a code {
   @apply text-indigo-500;
 }
 
-.dark .prose a:hover {
+.dark .prose a:hover,
+.dark .prose a:hover strong,
+.dark .prose a:hover code {
   @apply text-white;
+}
+
+.prose blockquote {
+  @apply rounded-r-md;
+  @apply border-indigo-600;
+  @apply bg-indigo-200;
+  @apply bg-opacity-25;
+  @apply font-normal;
+  @apply text-gray-800;
+  @apply transition-colors;
+  @apply duration-150;
+  quotes: none;
+}
+
+.dark .prose blockquote {
+  @apply border-indigo-500;
+  @apply bg-indigo-900;
+  @apply bg-opacity-25;
+  @apply text-gray-300;
 }
 
 .prose h1,
@@ -89,9 +136,9 @@ export default {
 .prose h5::before,
 .prose h6::before {
   content: "";
-  @apply block;
-  @apply -mt-16;
   @apply h-16;
+  @apply -mt-16;
+  @apply block;
   @apply invisible;
   @apply pointer-events-none;
 }
@@ -103,7 +150,27 @@ export default {
 .prose h5 > a:first-child::before,
 .prose h6 > a:first-child::before {
   content: "#";
-  @apply mr-2;
+  margin-right: 0.375em;
+}
+
+.prose ul li::before {
+  @apply bg-gray-700;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose ul li::before {
+  @apply bg-gray-400;
+}
+
+.prose ol li::before {
+  @apply text-gray-800;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose ol li::before {
+  @apply text-gray-300;
 }
 
 .prose .code-block {
@@ -124,6 +191,10 @@ export default {
   @apply pt-8;
 }
 
+.prose .code-block pre {
+  @apply text-base;
+}
+
 .prose .code-block .light,
 .dark .prose .code-block .dark {
   @apply block;
@@ -132,5 +203,37 @@ export default {
 .prose .code-block .dark,
 .dark .prose .code-block .light {
   @apply hidden;
+}
+
+.prose hr {
+  @apply border-gray-300;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose hr {
+  @apply border-gray-800;
+}
+
+.prose thead {
+  @apply border-gray-300;
+  @apply text-black;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose thead {
+  @apply border-gray-800;
+  @apply text-white;
+}
+
+.prose tbody tr {
+  @apply border-gray-200;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark tbody tr {
+  @apply border-gray-900;
 }
 </style>

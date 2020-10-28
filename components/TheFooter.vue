@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="w-full px-4 pt-4 pb-8 border-t border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900 text-center transition-colors duration-150"
+    class="w-full px-4 pt-4 pb-8 border-t border-gray-300 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 text-center transition-colors duration-150"
   >
     <div class="my-8">
       <a
