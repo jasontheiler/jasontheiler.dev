@@ -1,7 +1,7 @@
 <template>
   <header
     :class="[
-      'fixed left-0 top-0 w-full h-16 z-50 border-b bg-white dark:bg-black bg-opacity-75 dark:bg-opacity-75 bg-blur transition-colors duration-150',
+      'fixed left-0 top-0 w-full h-16 z-50 border-b bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50 bg-blur transition-colors duration-150',
       isScrolledToTop
         ? 'border-transparent'
         : 'border-gray-200 dark:border-gray-900',
@@ -66,6 +66,6 @@ export default {
 
 <style scoped>
 .bg-blur {
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 </style>

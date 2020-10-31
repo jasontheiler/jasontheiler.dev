@@ -95,6 +95,10 @@ export default {
 }
 
 .prose blockquote {
+  @apply relative;
+  @apply p-2;
+  @apply pr-4;
+  @apply pl-12;
   @apply rounded-r-md;
   @apply border-indigo-600;
   @apply bg-indigo-200;
@@ -111,6 +115,35 @@ export default {
   @apply bg-indigo-900;
   @apply bg-opacity-25;
   @apply text-gray-300;
+}
+
+.prose blockquote::before {
+  content: "i";
+  @apply absolute;
+  @apply left-0;
+  @apply inset-y-0;
+  @apply w-12;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  @apply font-bold;
+  @apply not-italic;
+  @apply text-2xl;
+  @apply text-indigo-600;
+  @apply transition-colors;
+  @apply duration-150;
+}
+
+.dark .prose blockquote::before {
+  @apply text-indigo-500;
+}
+
+.prose blockquote *:first-child {
+  @apply mt-0;
+}
+
+.prose blockquote *:last-child {
+  @apply mb-0;
 }
 
 .prose h1,
