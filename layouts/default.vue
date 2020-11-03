@@ -9,6 +9,10 @@
 </template>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-white;
   @apply text-gray-600;
