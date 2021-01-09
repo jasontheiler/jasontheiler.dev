@@ -44,24 +44,24 @@ export default {
   data() {
     return {
       isScrolledToTop: true,
-    }
+    };
   },
 
   methods: {
     handleScroll() {
-      this.isScrolledToTop = window.scrollY === 0
+      this.isScrolledToTop = window.scrollY === 0;
     },
   },
 
   mounted() {
-    this.handleScroll()
-    window.addEventListener("scroll", this.handleScroll)
+    this.handleScroll();
+    window.addEventListener("scroll", this.handleScroll);
   },
 
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll)
+    window.removeEventListener("scroll", this.handleScroll);
   },
-}
+};
 </script>
 
 <style scoped>

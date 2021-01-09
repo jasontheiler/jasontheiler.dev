@@ -67,10 +67,10 @@ export default {
   methods: {
     toggleTheme() {
       this.$colorMode.preference =
-        this.$colorMode.value === "dark" ? "light" : "dark"
+        this.$colorMode.value === "dark" ? "light" : "dark";
     },
   },
-}
+};
 </script>
 
 <style scoped>

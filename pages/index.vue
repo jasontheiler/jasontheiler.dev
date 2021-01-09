@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import { getPageHead } from "~/utils"
+import { getPageHead } from "~/utils";
 
 export default {
   head() {
     return getPageHead({
       instance: this,
-      title: null,
-    })
+      title: "Home",
+    });
   },
-}
+};
 </script>

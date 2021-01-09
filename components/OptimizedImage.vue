@@ -59,19 +59,19 @@ export default {
     return {
       isVisible: false,
       isLoaded: false,
-    }
+    };
   },
 
   methods: {
     setIsVisible(isVisible) {
-      this.isVisible = isVisible
+      this.isVisible = isVisible;
     },
 
     setIsLoaded(isLoaded) {
-      this.isLoaded = isLoaded
+      this.isLoaded = isLoaded;
     },
   },
-}
+};
 </script>
 
 <style scoped>

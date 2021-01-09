@@ -1,7 +1,10 @@
-import { NuxtConfig } from "@nuxt/types"
-import { $content } from "@nuxt/content"
-import { ThematicBlock } from "@nuxt/content/types/highlighter"
-import { getHighlighter } from "shiki"
+import { NuxtConfig } from "@nuxt/types";
+import { $content } from "@nuxt/content";
+import { ThematicBlock } from "@nuxt/content/types/highlighter";
+import { getHighlighter } from "shiki";
+
+// Reads environment variables.
+const { BASE_URL } = process.env;
 
 const config: NuxtConfig = {
   /*
@@ -11,33 +14,27 @@ const config: NuxtConfig = {
   target: "static",
 
   /*
-   * Runtime configuration
+   * Public runtime configuration
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config/
    */
   publicRuntimeConfig: {
-    baseUrl: process.env.BASE_URL,
+    baseUrl: BASE_URL,
   },
 
   /*
-   * Headers of the page
+   * Page `<head>`
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-head/
    */
   head: {
-    titleTemplate: (title) =>
-      title ? `${title} | Jason Theiler` : "Jason Theiler",
+    titleTemplate: (title) => `${title} • Jason Theiler`,
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   /*
-   * CSS to add globally
+   * Global CSS
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
    */
-  css: [
-    "fontsource-inter/400.css",
-    "fontsource-inter/500.css",
-    "fontsource-inter/700.css",
-    "fontsource-cascadia-code",
-  ],
+  css: ["@fontsource/inter/latin-ext.css", "@fontsource/cascadia-code"],
 
   /*
    * Plugins to load before mounting the app
@@ -121,11 +118,11 @@ const config: NuxtConfig = {
       async highlighter() {
         const lightHighlighter = await getHighlighter({
           theme: "light-plus",
-        })
+        });
 
         const darkHighlighter = await getHighlighter({
           theme: "dark-plus",
-        })
+        });
 
         return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
           `
@@ -150,7 +147,7 @@ const config: NuxtConfig = {
               }
             </div>
           </div>
-          `
+          `;
       },
     },
   },
@@ -160,20 +157,20 @@ const config: NuxtConfig = {
    * See: https://pwa.nuxtjs.org/setup/#configuration
    */
   pwa: {
+    manifest: {
+      name: "Jason Theiler",
+      short_name: "J. Theiler",
+      description: "Work in progress!",
+    },
+
     meta: {
       author: "Jason Theiler",
       description: "Work in progress!",
       ogSiteName: "Jason Theiler",
       ogTitle: "Jason Theiler",
-      ogHost: process.env.BASE_URL,
+      ogHost: BASE_URL,
       ogImage: "/image.png",
       twitterCard: "summary_large_image",
-    },
-
-    manifest: {
-      name: "Jason Theiler",
-      short_name: "J. Theiler",
-      description: "Work in progress!",
     },
   },
 
@@ -182,17 +179,17 @@ const config: NuxtConfig = {
    * See: https://github.com/nuxt-community/sitemap-module/#configuration
    */
   sitemap: {
-    hostname: process.env.BASE_URL,
+    hostname: BASE_URL,
     async routes() {
-      const posts = await $content("posts").only(["slug"]).fetch()
+      const posts = await $content("posts").only(["slug"]).fetch();
 
-      const getPostPath = (slug: string) => `/posts/${slug}`
+      const getPostPath = (slug: string) => `/posts/${slug}`;
 
       return Array.isArray(posts)
-        ? posts.map((post) => getPostPath(post.slug))
-        : getPostPath(posts.slug)
+        ? posts.map(({ slug }) => getPostPath(slug))
+        : getPostPath(posts.slug);
     },
   },
-}
+};
 
-export default config
+export default config;

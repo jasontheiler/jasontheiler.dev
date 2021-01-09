@@ -1,1 +1,1 @@
-export * from "./getPageHead"
+export * from "./getPageHead";
