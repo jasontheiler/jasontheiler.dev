@@ -3,8 +3,12 @@ import { $content } from "@nuxt/content";
 import { ThematicBlock } from "@nuxt/content/types/highlighter";
 import { getHighlighter } from "shiki";
 
+import { fixUrl } from "./utils";
+
 // Reads environment variables.
 const { BASE_URL } = process.env;
+
+const baseUrl = fixUrl(BASE_URL ?? "");
 
 const config: NuxtConfig = {
   /*
@@ -18,11 +22,11 @@ const config: NuxtConfig = {
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-runtime-config/
    */
   publicRuntimeConfig: {
-    baseUrl: BASE_URL,
+    baseUrl,
   },
 
   /*
-   * Page `<head>`
+   * Page metadata
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-head/
    */
   head: {
@@ -168,7 +172,7 @@ const config: NuxtConfig = {
       description: "Work in progress!",
       ogSiteName: "Jason Theiler",
       ogTitle: "Jason Theiler",
-      ogHost: BASE_URL,
+      ogHost: baseUrl,
       ogImage: "/image.png",
       twitterCard: "summary_large_image",
     },
@@ -179,7 +183,7 @@ const config: NuxtConfig = {
    * See: https://github.com/nuxt-community/sitemap-module/#configuration
    */
   sitemap: {
-    hostname: BASE_URL,
+    hostname: baseUrl,
     async routes() {
       const posts = await $content("posts").only(["slug"]).fetch();
 
