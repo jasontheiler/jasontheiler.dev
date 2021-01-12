@@ -58,6 +58,7 @@ const config: NuxtConfig = {
   /*
    * Build modules
    * See:
+   *   - https://nuxtjs.org/guides/configuration-glossary/configuration-modules/
    *   - https://typescript.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
    *   - https://color-mode.nuxtjs.org/
@@ -101,6 +102,7 @@ const config: NuxtConfig = {
   /*
    * Modules
    * See:
+   *   - https://nuxtjs.org/guides/configuration-glossary/configuration-modules/
    *   - https://content.nuxtjs.org/
    *   - https://pwa.nuxtjs.org/
    *   - https://github.com/nuxt-community/robots-module/

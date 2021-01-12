@@ -1,4 +1,5 @@
-const { colors, fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   /*
@@ -28,6 +29,8 @@ module.exports = {
   variants: {
     extend: {
       translate: ["dark"],
+      borderOpacity: ["dark"],
+      backgroundOpacity: ["dark"],
       outline: ["focus-visible"],
       ringWidth: ["focus-visible"],
       ringColor: ["focus-visible"],

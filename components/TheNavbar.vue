@@ -1,9 +1,7 @@
 <template>
-  <header
-    class="fixed left-0 top-0 w-full h-16 z-50 bg-white dark:bg-black transition-colors duration-150"
-  >
+  <header class="sticky top-0 w-full max-w-screen-lg z-50 mx-auto p-2">
     <div
-      class="w-full max-w-screen-lg h-full mx-auto px-4 flex justify-between items-center"
+      class="w-full h-16 px-4 flex justify-between items-center rounded-2xl bg-gray-100 dark:bg-gray-800 transition-colors duration-150"
     >
       <NuxtLink to="/" class="font-bold text-2xl"
         ><span class="sm:hidden">J.</span
@@ -28,7 +26,7 @@
           >Posts</NuxtLink
         >
 
-        <ThemeToggle class="ml-4 sm:ml-8" />
+        <TheThemeToggle class="ml-4 sm:ml-8" />
       </nav>
     </div>
   </header>

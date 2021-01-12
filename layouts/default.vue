@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="min-h-screen">
     <TheNavbar />
 
-    <Nuxt class="pt-16 min-h-screen" />
+    <Nuxt />
 
     <TheFooter />
   </div>
@@ -21,7 +21,7 @@ body {
 }
 
 .dark body {
-  @apply bg-black;
+  @apply bg-gray-900;
   @apply text-gray-500;
 }
 
