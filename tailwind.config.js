@@ -27,8 +27,12 @@ module.exports = {
    */
   variants: {
     extend: {
-      backgroundOpacity: ["dark"],
+      translate: ["dark"],
       outline: ["focus-visible"],
+      ringWidth: ["focus-visible"],
+      ringColor: ["focus-visible"],
+      ringOffsetWidth: ["focus-visible"],
+      ringOffsetColor: ["focus-visible"],
     },
   },
 

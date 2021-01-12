@@ -1,11 +1,6 @@
 <template>
   <header
-    :class="[
-      'fixed left-0 top-0 w-full h-16 z-50 border-b bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50 bg-blur transition-colors duration-150',
-      isScrolledToTop
-        ? 'border-transparent'
-        : 'border-gray-200 dark:border-gray-900',
-    ]"
+    class="fixed left-0 top-0 w-full h-16 z-50 bg-white dark:bg-black transition-colors duration-150"
   >
     <div
       class="w-full max-w-screen-lg h-full mx-auto px-4 flex justify-between items-center"
@@ -38,34 +33,3 @@
     </div>
   </header>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      isScrolledToTop: true,
-    };
-  },
-
-  methods: {
-    handleScroll() {
-      this.isScrolledToTop = window.scrollY === 0;
-    },
-  },
-
-  mounted() {
-    this.handleScroll();
-    window.addEventListener("scroll", this.handleScroll);
-  },
-
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-};
-</script>
-
-<style scoped>
-.bg-blur {
-  backdrop-filter: blur(6px);
-}
-</style>
