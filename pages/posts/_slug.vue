@@ -1,7 +1,9 @@
 <template>
-  <article class="w-full max-w-screen-lg mx-auto px-4 prose overflow-hidden">
-    <NuxtContent :document="post" />
-  </article>
+  <main class="w-full max-w-screen-lg mx-auto px-4">
+    <article>
+      <NuxtContent :document="post" class="prose overflow-hidden" />
+    </article>
+  </main>
 </template>
 
 <script>

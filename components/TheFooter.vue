@@ -1,33 +1,39 @@
 <template>
-  <footer class="w-full max-w-screen-lg mx-auto p-2">
-    <div
-      class="px-4 py-4 rounded-2xl bg-gray-100 dark:bg-gray-800 text-center transition-colors duration-150"
-    >
-      <div class="my-8">
-        <a
-          href="https://github.com/jasontheiler"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          class="hover:text-black dark:hover:text-white transition-colors duration-150"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10 inline">
-            <title>GitHub</title>
+  <footer class="w-full max-w-screen-lg mx-auto px-4">
+    <hr
+      class="border-t border-gray-200 dark:border-gray-700 transition-colors duration-150"
+    />
 
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48C19.137 20.107 22 16.373 22 11.969 22 6.463 17.522 2 12 2z"
-            />
-          </svg>
-        </a>
-      </div>
+    <div class="my-6 flex flex-col sm:flex-row justify-between items-center">
+      <ul class="mb-4 sm:mb-0">
+        <li>
+          <a
+            href="https://github.com/jasontheiler"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            class="hover:text-black dark:hover:text-white transition-colors duration-150"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-10 h-10 inline"
+            >
+              <title>GitHub</title>
 
-      <p class="my-4">
+              <path
+                d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48C19.137 20.107 22 16.373 22 11.969 22 6.463 17.522 2 12 2z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <p>
         Made with
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          class="w-6 h-6 mb-1 inline"
+          class="w-6 h-6 mb-1 inline text-rose-600"
         >
           <path
             fill-rule="evenodd"
@@ -37,7 +43,7 @@
         </svg>
       </p>
 
-      <p class="my-4">© {{ new Date().getFullYear() }} Jason Theiler</p>
+      <p>© {{ new Date().getFullYear() }} Jason Theiler</p>
     </div>
   </footer>
 </template>

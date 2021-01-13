@@ -1,5 +1,5 @@
 <template>
-  <main></main>
+  <main class="w-full max-w-screen-lg mx-auto px-4"></main>
 </template>
 
 <script>

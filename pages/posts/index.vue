@@ -1,9 +1,11 @@
 <template>
-  <ul class="w-full max-w-screen-lg mx-auto px-4">
-    <li v-for="{ slug, title } in posts" :key="slug">
-      <NuxtLink :to="`/posts/${slug}`">{{ title }}</NuxtLink>
-    </li>
-  </ul>
+  <main class="w-full max-w-screen-lg mx-auto px-4">
+    <ul>
+      <li v-for="{ slug, title } in posts" :key="slug">
+        <NuxtLink :to="`/posts/${slug}`">{{ title }}</NuxtLink>
+      </li>
+    </ul>
+  </main>
 </template>
 
 <script>

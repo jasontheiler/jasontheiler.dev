@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div>
     <TheNavbar />
 
     <Nuxt />
@@ -25,7 +25,7 @@ body {
   @apply text-gray-500;
 }
 
-.js-focus-visible :focus:not(.focus-visible) {
+[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
   @apply outline-none;
 }
 </style>
