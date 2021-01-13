@@ -17,5 +17,5 @@
     },
     "types": ["@types/node", "@nuxt/types", "@nuxt/content"]
   },
-  "exclude": [".nuxt", "dist", "node_modules"]
+  "exclude": ["./.nuxt", "./dist", "./node_modules"]
 }

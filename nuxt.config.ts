@@ -38,7 +38,10 @@ const config: NuxtConfig = {
    * Global CSS
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
    */
-  css: ["@fontsource/inter/latin-ext.css", "@fontsource/cascadia-code"],
+  css: [
+    "@fontsource/inter/latin-ext.css",
+    "@fontsource/cascadia-code/latin-ext.css",
+  ],
 
   /*
    * Plugins to load before mounting the app
