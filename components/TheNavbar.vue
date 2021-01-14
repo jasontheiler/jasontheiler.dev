@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 w-full max-w-screen-xl z-50 mx-auto p-2">
+  <header class="sticky top-0 w-full max-w-screen-xl z-50 mx-auto mb-8 p-2">
     <nav
       class="w-full h-16 px-4 flex justify-between items-center rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-md transition-colors duration-150"
     >

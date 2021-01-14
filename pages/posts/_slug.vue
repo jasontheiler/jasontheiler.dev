@@ -40,6 +40,7 @@ export default {
 
 <style>
 .prose {
+  @apply max-w-none;
   @apply text-gray-600;
   @apply transition-colors;
   @apply duration-150;
@@ -171,8 +172,8 @@ export default {
 .prose h5::before,
 .prose h6::before {
   content: "";
-  @apply h-16;
-  @apply -mt-16;
+  @apply h-28;
+  @apply -mt-28;
   @apply block;
   @apply invisible;
   @apply pointer-events-none;
