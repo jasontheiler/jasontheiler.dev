@@ -1,7 +1,9 @@
 <template>
-  <header class="sticky top-0 w-full max-w-screen-xl z-50 mx-auto mb-8 p-2">
+  <header
+    class="sticky top-0 w-full max-w-screen-xl z-30 mx-auto mb-16 px-2 sm:px-3 lg:px-4 py-2"
+  >
     <nav
-      class="w-full h-16 px-4 flex justify-between items-center rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-md transition-colors duration-150"
+      class="w-full h-16 px-4 sm:px-6 lg:px-8 flex justify-between items-center rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-md transition-colors duration-150"
     >
       <NuxtLink to="/" class="font-bold text-2xl"
         ><span class="sm:hidden">J.</span

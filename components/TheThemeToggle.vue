@@ -9,7 +9,7 @@
       <div
         class="w-7 h-7 flex justify-center items-center rounded-full bg-coolGray-600 hover:bg-coolGray-500 dark:bg-indigo-600 dark:group-hover:bg-indigo-500 text-yellow-200 transition-colors duration-150"
       >
-        <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+        <svg viewBox="0 0 20 20" class="w-4 h-4 fill-current">
           <path
             d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
           />

@@ -1,8 +1,20 @@
 <template>
-  <main class="w-full max-w-screen-xl mx-auto px-4">
-    <article>
+  <main class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex">
+    <article class="lg:w-4/5">
+      <h1
+        class="font-bold text-6xl text-gray-900 dark:text-white transition-colors duration-150"
+      >
+        {{ post.title }}
+      </h1>
+
+      <p>{{ post.description }}</p>
+
+      <OptimizedImage :image="post.image" :alt="post.title" />
+
       <NuxtContent :document="post" class="prose overflow-hidden" />
     </article>
+
+    <ThePostToC :toc="post.toc" />
   </main>
 </template>
 

@@ -34,7 +34,7 @@ body {
 .page-enter-active,
 .page-leave-active {
   @apply transition-opacity;
-  @apply duration-150;
+  @apply duration-300;
 }
 
 .page-enter,

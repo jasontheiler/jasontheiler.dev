@@ -7,7 +7,7 @@
         rootMargin: '256px',
       },
     }"
-    class="relative w-full h-full overflow-hidden"
+    class="relative w-full overflow-hidden"
   >
     <img
       :src="require(`~/assets/images/${image}?lqip`)"

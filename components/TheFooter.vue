@@ -1,11 +1,11 @@
 <template>
-  <footer class="w-full max-w-screen-xl mx-auto mt-8 px-4">
+  <footer class="w-full max-w-screen-xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
     <hr
-      class="border-t border-gray-200 dark:border-gray-700 transition-colors duration-150"
+      class="mb-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-150"
     />
 
-    <div class="my-6 flex flex-col sm:flex-row justify-between items-center">
-      <ul class="mb-4 sm:mb-0">
+    <div class="flex flex-col justify-between items-center">
+      <ul class="mb-8">
         <li>
           <a
             href="https://github.com/jasontheiler"
