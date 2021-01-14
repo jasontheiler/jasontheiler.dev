@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full max-w-screen-lg mx-auto px-4">
+  <footer class="w-full max-w-screen-xl mx-auto px-4">
     <hr
       class="border-t border-gray-200 dark:border-gray-700 transition-colors duration-150"
     />

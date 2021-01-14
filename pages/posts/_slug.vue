@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full max-w-screen-lg mx-auto px-4">
+  <main class="w-full max-w-screen-xl mx-auto px-4">
     <article>
       <NuxtContent :document="post" class="prose overflow-hidden" />
     </article>

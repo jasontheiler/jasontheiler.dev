@@ -1,6 +1,6 @@
 <template>
   <main
-    class="w-full max-w-screen-lg mx-auto px-4 flex justify-center items-center"
+    class="w-full max-w-screen-xl mx-auto px-4 flex justify-center items-center"
   >
     <div class="w-full">
       <OptimizedImage image="kelp_forest.png" alt="Kelp Forest" />
