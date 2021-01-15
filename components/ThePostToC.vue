@@ -6,7 +6,7 @@
       class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex lg:block transform-gpu lg:transform-none bg-black bg-opacity-25 lg:bg-transparent"
     >
       <div
-        class="z-50 w-full max-w-xs h-screen lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 bg-white dark:bg-gray-900 transition-colors duration-150"
+        class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 bg-white dark:bg-gray-900 transition-colors duration-150"
       >
         <p>In this post</p>
 

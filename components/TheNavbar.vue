@@ -13,9 +13,11 @@
         >
       </NuxtLink>
 
-      <div class="flex items-center">
-        <ul class="flex font-medium">
-          <li class="ml-4 sm:ml-8">
+      <div
+        class="flex items-center divide-x divide-gray-300 dark:divide-gray-600"
+      >
+        <ul class="pr-4 sm:pr-6 lg:pr-8 flex font-medium">
+          <li class="ml-4 sm:ml-6 lg:ml-8">
             <NuxtLink
               to="/projects"
               active-class="text-black dark:text-white"
@@ -24,7 +26,7 @@
             >
           </li>
 
-          <li class="ml-4 sm:ml-8">
+          <li class="ml-4 sm:ml-6 lg:ml-8">
             <NuxtLink
               to="/posts"
               active-class="text-black dark:text-white"
@@ -34,7 +36,9 @@
           </li>
         </ul>
 
-        <TheThemeToggle class="ml-4 sm:ml-8" />
+        <div class="pl-4 sm:pl-6 lg:pl-8 transition-colors duration-150">
+          <TheThemeToggle />
+        </div>
       </div>
     </nav>
   </header>

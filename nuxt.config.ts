@@ -123,6 +123,7 @@ const config: NuxtConfig = {
    * See: https://content.nuxtjs.org/configuration/
    */
   content: {
+    liveEdit: false,
     markdown: {
       async highlighter() {
         const lightHighlighter = await getHighlighter({
