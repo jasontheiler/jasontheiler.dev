@@ -20,8 +20,13 @@
 
 <script>
 import { getPageHead } from "~/utils";
+import PostBlockquote from "~/components/PostBlockquote";
 
 export default {
+  components: {
+    PostBlockquote,
+  },
+
   async asyncData({ $content, params }) {
     const post = await $content("posts", params.slug).fetch();
     const [prevPost, nextPost] = await $content("posts")
@@ -100,57 +105,34 @@ export default {
 .dark .prose a,
 .dark .prose a strong,
 .dark .prose a code {
-  @apply text-indigo-500;
+  @apply text-indigo-600;
 }
 
 .dark .prose a:hover,
 .dark .prose a:hover strong,
 .dark .prose a:hover code {
-  @apply text-white;
+  @apply text-indigo-500;
+  @apply underline;
 }
 
 .prose blockquote {
-  @apply relative;
-  @apply p-2;
-  @apply pr-4;
-  @apply pl-12;
-  @apply rounded-r-md;
-  @apply border-indigo-600;
-  @apply bg-indigo-200;
-  @apply bg-opacity-25;
+  @apply p-4;
+  @apply rounded-2xl;
+  @apply border-none;
+  @apply bg-gradient-to-br;
+  @apply from-purple-500;
+  @apply to-indigo-500;
   @apply font-normal;
-  @apply text-gray-800;
+  @apply not-italic;
+  @apply text-white;
   @apply transition-colors;
   @apply duration-150;
   quotes: none;
 }
 
 .dark .prose blockquote {
-  @apply border-indigo-500;
-  @apply bg-indigo-900;
-  @apply bg-opacity-25;
-  @apply text-gray-300;
-}
-
-.prose blockquote::before {
-  content: "i";
-  @apply absolute;
-  @apply left-0;
-  @apply inset-y-0;
-  @apply w-12;
-  @apply flex;
-  @apply justify-center;
-  @apply items-center;
-  @apply font-bold;
-  @apply not-italic;
-  @apply text-2xl;
-  @apply text-indigo-600;
-  @apply transition-colors;
-  @apply duration-150;
-}
-
-.dark .prose blockquote::before {
-  @apply text-indigo-500;
+  @apply from-purple-700;
+  @apply to-indigo-700;
 }
 
 .prose blockquote *:first-child {
@@ -231,6 +213,7 @@ export default {
   @apply top-0;
   @apply px-4;
   @apply py-2;
+  @apply font-mono;
   @apply font-medium;
   @apply text-sm;
 }
@@ -240,6 +223,7 @@ export default {
 }
 
 .prose .code-block pre {
+  @apply rounded-2xl;
   @apply text-base;
 }
 

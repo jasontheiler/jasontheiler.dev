@@ -42,8 +42,8 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-   To have a line break without a paragraph, you will need to use two trailing spaces.  
-   Note that this line is separate, but within the same paragraph.  
+   To have a line break without a paragraph, you will need to use two trailing spaces.
+   Note that this line is separate, but within the same paragraph.
    (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
 - Unordered list can use asterisks
@@ -109,3 +109,55 @@ Quote break.
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
 
 Quote break.
+
+> ```rust
+> use std::io::{self, Write};
+>
+> ...
+> ```
+
+## Custom components
+
+### Blockquote
+
+<post-blockquote>
+
+The _negotiations_ `were` **short**.
+
+</post-blockquote>
+
+<post-blockquote>
+
+Btw, Rust is awesome!
+
+```rust[main.rs]
+use std::io::{self, Write};
+
+fn main() {
+    let n = loop {
+        print!("Please enter a number: ");
+        io::stdout().flush().unwrap();
+
+        let mut input = String::new();
+
+        io::stdin().read_line(&mut input).unwrap();
+
+        match input.trim().parse::<u128>() {
+            Ok(input) => break input,
+            Err(_) => println!("This is not an acceptable number!"),
+        };
+    };
+
+    println!("fib({}) = {}", n, fib(n));
+}
+
+pub fn fib(n: u128) -> u128 {
+    match n {
+        0 | 1 => n,
+        _ => fib(n - 2) + fib(n - 1),
+    }
+}
+
+```
+
+</post-blockquote>
