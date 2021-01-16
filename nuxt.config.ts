@@ -39,6 +39,7 @@ const config: NuxtConfig = {
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
    */
   css: [
+    "@animxyz/core",
     "@fontsource/inter/latin.css",
     "@fontsource/neuton/latin.css",
     "@fontsource/cascadia-code/latin-ext.css",
@@ -50,6 +51,7 @@ const config: NuxtConfig = {
    */
   plugins: [
     { src: "~/plugins/polyfills.ts", mode: "client" },
+    { src: "~/plugins/animxyz.ts", mode: "client" },
     { src: "~/plugins/vue-observe-visibility.ts", mode: "client" },
   ],
 
