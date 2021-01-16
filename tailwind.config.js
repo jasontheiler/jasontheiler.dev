@@ -17,6 +17,7 @@ module.exports = {
       colors,
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
+        serif: ["Neuton", ...fontFamily.serif],
         mono: ['"Cascadia Code"', ...fontFamily.mono],
       },
     },

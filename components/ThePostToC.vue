@@ -8,6 +8,8 @@
       <div
         class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 bg-white dark:bg-gray-900 transition-colors duration-150"
       >
+        <NuxtLink :to="$route.path">Back to the top</NuxtLink>
+
         <p>In this post</p>
 
         <ul>

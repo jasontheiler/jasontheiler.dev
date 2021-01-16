@@ -39,7 +39,8 @@ const config: NuxtConfig = {
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-css/
    */
   css: [
-    "@fontsource/inter/latin-ext.css",
+    "@fontsource/inter/latin.css",
+    "@fontsource/neuton/latin.css",
     "@fontsource/cascadia-code/latin-ext.css",
   ],
 
