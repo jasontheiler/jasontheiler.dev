@@ -1,19 +1,19 @@
 <template>
   <main class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex">
-    <article class="lg:w-4/5">
+    <article class="lg:w-3/4">
       <h1
-        class="mb-8 font-serif font-bold text-7xl lg:text-8xl text-gray-900 dark:text-white transition-colors duration-150"
+        class="mb-8 font-serif font-bold text-7xl md:text-8xl text-gray-900 dark:text-white transition-colors duration-150"
       >
         {{ post.title }}
       </h1>
 
-      <p class="mb-16 font-medium text-xl lg:text-2xl">
+      <p class="mb-16 font-medium text-xl md:text-2xl">
         {{ post.description }}
       </p>
 
       <OptimizedImage :image="post.image" :alt="post.title" class="mb-16" />
 
-      <NuxtContent :document="post" class="prose lg:prose-lg overflow-hidden" />
+      <NuxtContent :document="post" class="prose md:prose-lg overflow-hidden" />
     </article>
 
     <ThePostToC :toc="post.toc" />

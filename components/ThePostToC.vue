@@ -1,12 +1,12 @@
 <template>
-  <aside class="lg:w-1/5 lg:ml-16">
+  <aside class="lg:w-1/4">
     <div
       :class="{ hidden: !isOpen }"
       @click="isOpen = !isOpen"
       class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex lg:block transform-gpu lg:transform-none bg-black bg-opacity-25 lg:bg-transparent"
     >
       <div
-        class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 bg-white dark:bg-gray-900 transition-colors duration-150"
+        class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 lg:pl-16 bg-white dark:bg-gray-900 transition-colors duration-150"
       >
         <NuxtLink :to="$route.path">Back to the top</NuxtLink>
 

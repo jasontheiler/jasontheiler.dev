@@ -1,10 +1,10 @@
 <template>
-  <main
-    class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center"
-  >
-    <div class="w-full">
+  <main>
+    <TheHeroSection />
+
+    <section class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
       <OptimizedImage image="kelp_forest.png" alt="Kelp Forest" />
-    </div>
+    </section>
   </main>
 </template>
 
