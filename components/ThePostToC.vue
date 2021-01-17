@@ -6,7 +6,7 @@
       class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex lg:block transform-gpu lg:transform-none bg-black bg-opacity-25 lg:bg-transparent"
     >
       <div
-        class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 lg:pl-16 bg-white dark:bg-gray-900 transition-colors duration-150"
+        class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 lg:pl-16 bg-white dark:bg-black transition-colors duration-150"
       >
         <NuxtLink :to="$route.path">Back to the top</NuxtLink>
 
@@ -35,7 +35,7 @@
       class="fixed lg:hidden right-4 sm:right-6 bottom-4 sm:bottom-6 z-50 p-4 rounded-full bg-gray-900 hover:bg-gray-700 dark:bg-white dark:hover:bg-gray-200 text-white dark:text-gray-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-gray-900 dark:focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900 transition duration-150"
     >
       <svg viewBox="0 0 24 24" class="w-7 h-7 stroke-2 stroke-current">
-        <Transition name="button-icon-path">
+        <XyzTransition :duration="150" xyz="fade small" mode="out-in">
           <path
             v-if="isOpen"
             key="close"
@@ -51,7 +51,7 @@
             stroke-linejoin="round"
             d="M4 6h16M4 12h8m-8 6h16"
           />
-        </Transition>
+        </XyzTransition>
       </svg>
     </button>
   </aside>
@@ -73,16 +73,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.button-icon-path-enter-active,
-.button-icon-path-leave-active {
-  @apply transition-opacity;
-  @apply duration-150;
-}
-
-.button-icon-path-enter,
-.button-icon-path-leave-to {
-  @apply opacity-0;
-}
-</style>

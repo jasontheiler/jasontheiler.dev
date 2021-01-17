@@ -60,7 +60,7 @@ export default {
 <style>
 .prose {
   @apply max-w-none;
-  @apply text-gray-600;
+  @apply text-gray-500;
   @apply transition-colors;
   @apply duration-150;
 }

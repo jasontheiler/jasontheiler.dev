@@ -130,11 +130,11 @@ const config: NuxtConfig = {
     markdown: {
       async highlighter() {
         const lightHighlighter = await getHighlighter({
-          theme: "light-plus",
+          theme: "github-light",
         });
 
         const darkHighlighter = await getHighlighter({
-          theme: "dark-plus",
+          theme: "github-dark",
         });
 
         return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>

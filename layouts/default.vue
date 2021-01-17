@@ -15,13 +15,13 @@ html {
 
 body {
   @apply bg-white;
-  @apply text-gray-600;
+  @apply text-gray-500;
   @apply transition-colors;
   @apply duration-150;
 }
 
 .dark body {
-  @apply bg-gray-900;
+  @apply bg-black;
   @apply text-gray-500;
 }
 
