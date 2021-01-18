@@ -1,7 +1,7 @@
 <template>
   <button
     @click="toggleTheme"
-    class="group w-10 h-6 flex justify-center items-center border-2 border-gray-800 dark:border-indigo-800 border-opacity-50 dark:border-opacity-50 rounded-full bg-gray-900 dark:bg-indigo-900 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-gray-800 dark:focus-visible:ring-indigo-800 focus-visible:ring-offset-4 focus-visible:ring-offset-gray-100 dark:focus-visible:ring-offset-gray-800 transition duration-150"
+    class="group w-10 h-6 flex justify-center items-center border-2 border-gray-800 dark:border-indigo-800 border-opacity-50 dark:border-opacity-50 rounded-full bg-gray-900 dark:bg-indigo-900 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-gray-800 dark:focus-visible:ring-indigo-800 focus-visible:ring-offset-4 focus-visible:ring-offset-gray-100 dark:focus-visible:ring-offset-gray-1000 transition duration-150"
   >
     <div
       class="transform-gpu -translate-x-2 dark:translate-x-2 transition-transform duration-300"

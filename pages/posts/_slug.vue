@@ -60,13 +60,13 @@ export default {
 <style>
 .prose {
   @apply max-w-none;
-  @apply text-gray-500;
+  @apply text-gray-600;
   @apply transition-colors;
   @apply duration-150;
 }
 
 .dark .prose {
-  @apply text-gray-500;
+  @apply text-gray-400;
 }
 
 .prose strong {

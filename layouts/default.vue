@@ -15,14 +15,14 @@ html {
 
 body {
   @apply bg-white;
-  @apply text-gray-500;
+  @apply text-gray-600;
   @apply transition-colors;
   @apply duration-150;
 }
 
 .dark body {
   @apply bg-black;
-  @apply text-gray-500;
+  @apply text-gray-400;
 }
 
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {
