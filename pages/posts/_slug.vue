@@ -66,7 +66,7 @@ export default {
 }
 
 .dark .prose {
-  @apply text-gray-400;
+  @apply text-gray-500;
 }
 
 .prose strong {
@@ -92,7 +92,8 @@ export default {
 .prose a,
 .prose a strong,
 .prose a code {
-  @apply text-indigo-600;
+  @apply relative;
+  @apply text-indigo-1000;
   @apply no-underline;
   @apply transition-colors;
   @apply duration-150;
@@ -107,14 +108,72 @@ export default {
 .dark .prose a,
 .dark .prose a strong,
 .dark .prose a code {
-  @apply text-indigo-600;
+  @apply text-indigo-100;
 }
 
 .dark .prose a:hover,
 .dark .prose a:hover strong,
 .dark .prose a:hover code {
-  @apply text-indigo-500;
-  @apply underline;
+  @apply text-white;
+}
+
+.prose a::before {
+  @apply absolute;
+  @apply inset-x-0;
+  @apply bottom-0;
+  @apply h-1;
+  @apply transform-gpu;
+  @apply bg-indigo-200;
+  @apply transition-all;
+  @apply duration-150;
+  content: "";
+  z-index: -1;
+}
+
+.prose a:hover::before {
+  @apply translate-y-1;
+  @apply bg-indigo-500;
+}
+
+.dark .prose a::before {
+  @apply bg-indigo-900;
+}
+
+.dark .prose a:hover::before {
+  @apply bg-indigo-600;
+}
+
+.prose a::after {
+  @apply absolute;
+  @apply left-1/2;
+  @apply top-full;
+  @apply px-4;
+  @apply py-2;
+  @apply transform-gpu;
+  @apply -translate-x-1/2;
+  @apply opacity-0;
+  @apply invisible;
+  @apply rounded-lg;
+  @apply bg-gray-100;
+  @apply leading-4;
+  @apply text-sm;
+  @apply text-gray-700;
+  @apply shadow-sm;
+  @apply transition;
+  @apply duration-150;
+  content: attr(href);
+  z-index: 1;
+}
+
+.prose a:hover::after {
+  @apply translate-y-2;
+  @apply opacity-100;
+  @apply visible;
+}
+
+.dark .prose a::after {
+  @apply bg-gray-1000;
+  @apply text-gray-400;
 }
 
 .prose blockquote {
@@ -133,8 +192,8 @@ export default {
 }
 
 .dark .prose blockquote {
-  @apply from-purple-700;
-  @apply to-indigo-700;
+  @apply from-purple-600;
+  @apply to-indigo-600;
 }
 
 .prose blockquote *:first-child {
@@ -167,12 +226,12 @@ export default {
 .prose h4::before,
 .prose h5::before,
 .prose h6::before {
-  content: "";
   @apply h-28;
   @apply -mt-28;
   @apply block;
   @apply invisible;
   @apply pointer-events-none;
+  content: "";
 }
 
 .prose h1 > a:first-child::before,
@@ -181,28 +240,29 @@ export default {
 .prose h4 > a:first-child::before,
 .prose h5 > a:first-child::before,
 .prose h6 > a:first-child::before {
+  @apply static;
   content: "#";
   margin-right: 0.375em;
 }
 
 .prose ul li::before {
-  @apply bg-gray-700;
+  @apply bg-gray-400;
   @apply transition-colors;
   @apply duration-150;
 }
 
 .dark .prose ul li::before {
-  @apply bg-gray-400;
+  @apply bg-gray-700;
 }
 
 .prose ol li::before {
-  @apply text-gray-800;
   @apply transition-colors;
   @apply duration-150;
+  @apply text-gray-500;
 }
 
 .dark .prose ol li::before {
-  @apply text-gray-300;
+  @apply text-gray-600;
 }
 
 .prose .code-block {

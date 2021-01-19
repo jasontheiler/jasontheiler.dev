@@ -22,7 +22,7 @@ body {
 
 .dark body {
   @apply bg-black;
-  @apply text-gray-400;
+  @apply text-gray-500;
 }
 
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {
