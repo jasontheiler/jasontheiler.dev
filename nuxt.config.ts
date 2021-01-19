@@ -1,6 +1,5 @@
 import { NuxtConfig } from "@nuxt/types";
 import { $content } from "@nuxt/content";
-import { ThematicBlock } from "@nuxt/content/types/highlighter";
 import { getHighlighter } from "shiki";
 
 import { fixUrl } from "./utils";
@@ -137,6 +136,11 @@ const config: NuxtConfig = {
           theme: "github-dark",
         });
 
+        interface ThematicBlock {
+          lineHighlights: string | null;
+          fileName: string | null;
+        }
+
         return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
           `
           <div class="code-block">
@@ -148,15 +152,17 @@ const config: NuxtConfig = {
 
             <div class="light">
               ${
-                lightHighlighter.codeToHtml &&
-                lightHighlighter.codeToHtml(rawCode, lang || "markdown")
+                lightHighlighter.codeToHtml
+                  ? lightHighlighter.codeToHtml(rawCode, lang)
+                  : ""
               }
             </div>
 
             <div class="dark">
               ${
-                darkHighlighter.codeToHtml &&
-                darkHighlighter.codeToHtml(rawCode, lang || "markdown")
+                darkHighlighter.codeToHtml
+                  ? darkHighlighter.codeToHtml(rawCode, lang)
+                  : ""
               }
             </div>
           </div>
