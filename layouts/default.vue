@@ -14,15 +14,11 @@ html {
 }
 
 body {
-  @apply bg-white;
-  @apply text-gray-600;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply bg-white text-gray-600 transition-colors duration-150;
 }
 
 .dark body {
-  @apply bg-black;
-  @apply text-gray-500;
+  @apply bg-black text-gray-400;
 }
 
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {
@@ -33,8 +29,7 @@ body {
 <style scoped>
 .page-enter-active,
 .page-leave-active {
-  @apply transition-opacity;
-  @apply duration-300;
+  @apply transition-opacity duration-300;
 }
 
 .page-enter,

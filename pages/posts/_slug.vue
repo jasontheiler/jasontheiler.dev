@@ -59,20 +59,15 @@ export default {
 
 <style>
 .prose {
-  @apply max-w-none;
-  @apply text-gray-600;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply max-w-none text-gray-600 transition-colors duration-150;
 }
 
 .dark .prose {
-  @apply text-gray-500;
+  @apply text-gray-400;
 }
 
 .prose strong {
-  @apply text-black;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply text-black transition-colors duration-150;
 }
 
 .dark .prose strong {
@@ -80,9 +75,7 @@ export default {
 }
 
 .prose code {
-  @apply text-black;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply text-black transition-colors duration-150;
 }
 
 .dark .prose code {
@@ -92,11 +85,7 @@ export default {
 .prose a,
 .prose a strong,
 .prose a code {
-  @apply relative;
-  @apply text-indigo-1000;
-  @apply no-underline;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply relative text-gray-700 no-underline transition-colors duration-150;
 }
 
 .prose a:hover,
@@ -108,7 +97,7 @@ export default {
 .dark .prose a,
 .dark .prose a strong,
 .dark .prose a code {
-  @apply text-indigo-100;
+  @apply text-gray-300;
 }
 
 .dark .prose a:hover,
@@ -118,21 +107,12 @@ export default {
 }
 
 .prose a::before {
-  @apply absolute;
-  @apply inset-x-0;
-  @apply bottom-0;
-  @apply h-1;
-  @apply transform-gpu;
-  @apply bg-indigo-200;
-  @apply transition-all;
-  @apply duration-150;
+  @apply absolute inset-x-1 -bottom-1.5 h-1  bg-indigo-200 transition-all duration-150;
   content: "";
-  z-index: -1;
 }
 
 .prose a:hover::before {
-  @apply translate-y-1;
-  @apply bg-indigo-500;
+  @apply -inset-x-1 bg-indigo-500;
 }
 
 .dark .prose a::before {
@@ -140,77 +120,27 @@ export default {
 }
 
 .dark .prose a:hover::before {
-  @apply bg-indigo-600;
+  @apply bg-indigo-700;
 }
 
 .prose a::after {
-  @apply absolute;
-  @apply left-1/2;
-  @apply top-full;
-  @apply px-4;
-  @apply py-2;
-  @apply transform-gpu;
-  @apply -translate-x-1/2;
-  @apply opacity-0;
-  @apply invisible;
-  @apply rounded-lg;
-  @apply bg-gray-100;
-  @apply leading-4;
-  @apply text-sm;
-  @apply text-gray-700;
-  @apply shadow-sm;
-  @apply transition;
-  @apply duration-150;
+  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-gray-100 leading-4 text-sm text-gray-700 whitespace-nowrap shadow-sm transition duration-150;
   content: attr(href);
-  z-index: 1;
 }
 
 .prose a:hover::after {
-  @apply translate-y-2;
-  @apply opacity-100;
-  @apply visible;
+  @apply translate-y-2 opacity-100 visible;
 }
 
 .dark .prose a::after {
-  @apply bg-gray-1000;
-  @apply text-gray-400;
-}
-
-.prose blockquote {
-  @apply p-4;
-  @apply rounded-2xl;
-  @apply border-none;
-  @apply bg-gradient-to-br;
-  @apply from-purple-500;
-  @apply to-indigo-500;
-  @apply font-normal;
-  @apply not-italic;
-  @apply text-white;
-  @apply transition-colors;
-  @apply duration-150;
-  quotes: none;
-}
-
-.dark .prose blockquote {
-  @apply from-purple-600;
-  @apply to-indigo-600;
-}
-
-.prose blockquote *:first-child {
-  @apply mt-0;
-}
-
-.prose blockquote *:last-child {
-  @apply mb-0;
+  @apply bg-gray-1000 text-gray-300;
 }
 
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
-  @apply text-black;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply text-black transition-colors duration-150;
 }
 
 .dark .prose h1,
@@ -226,11 +156,7 @@ export default {
 .prose h4::before,
 .prose h5::before,
 .prose h6::before {
-  @apply h-28;
-  @apply -mt-28;
-  @apply block;
-  @apply invisible;
-  @apply pointer-events-none;
+  @apply h-28 -mt-28 block invisible pointer-events-none;
   content: "";
 }
 
@@ -240,29 +166,74 @@ export default {
 .prose h4 > a:first-child::before,
 .prose h5 > a:first-child::before,
 .prose h6 > a:first-child::before {
-  @apply static;
+  @apply static bg-transparent text-gray-400;
   content: "#";
   margin-right: 0.375em;
 }
 
+.prose h1 > a:first-child:hover::before,
+.prose h2 > a:first-child:hover::before,
+.prose h3 > a:first-child:hover::before,
+.prose h4 > a:first-child:hover::before,
+.prose h5 > a:first-child:hover::before,
+.prose h6 > a:first-child:hover::before {
+  @apply bg-transparent text-black;
+}
+
+.dark .prose h1 > a:first-child::before,
+.dark .prose h2 > a:first-child::before,
+.dark .prose h3 > a:first-child::before,
+.dark .prose h4 > a:first-child::before,
+.dark .prose h5 > a:first-child::before,
+.dark .prose h6 > a:first-child::before {
+  @apply text-gray-600;
+}
+
+.dark .prose h1 > a:first-child:hover::before,
+.dark .prose h2 > a:first-child:hover::before,
+.dark .prose h3 > a:first-child:hover::before,
+.dark .prose h4 > a:first-child:hover::before,
+.dark .prose h5 > a:first-child:hover::before,
+.dark .prose h6 > a:first-child:hover::before {
+  @apply bg-transparent text-white;
+}
+
+.prose h1 > a:first-child::after,
+.prose h2 > a:first-child::after,
+.prose h3 > a:first-child::after,
+.prose h4 > a:first-child::after,
+.prose h5 > a:first-child::after,
+.prose h6 > a:first-child::after {
+  @apply left-0 translate-x-0;
+}
+
 .prose ul li::before {
-  @apply bg-gray-400;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply bg-gray-400 transition-colors duration-150;
 }
 
 .dark .prose ul li::before {
-  @apply bg-gray-700;
+  @apply bg-gray-600;
 }
 
 .prose ol li::before {
-  @apply transition-colors;
-  @apply duration-150;
   @apply text-gray-500;
 }
 
-.dark .prose ol li::before {
-  @apply text-gray-600;
+.prose blockquote {
+  @apply p-4 rounded-2xl border-none bg-gradient-to-br from-purple-500 to-indigo-500 font-normal not-italic text-white transition-colors duration-150;
+  quotes: none;
+}
+
+.dark .prose blockquote {
+  @apply from-purple-700 to-indigo-700;
+}
+
+.prose blockquote *:first-child {
+  @apply mt-0;
+}
+
+.prose blockquote *:last-child {
+  @apply mb-0;
 }
 
 .prose .code-block {
@@ -270,14 +241,11 @@ export default {
 }
 
 .prose .code-block .file-name {
-  @apply absolute;
-  @apply right-0;
-  @apply top-0;
-  @apply px-4;
-  @apply py-2;
-  @apply font-mono;
-  @apply font-medium;
-  @apply text-sm;
+  @apply absolute right-0 top-0 px-4 py-2 font-mono text-sm md:text-base text-gray-600;
+}
+
+.dark .prose .code-block .file-name {
+  @apply text-gray-400;
 }
 
 .prose .code-block .file-name ~ * pre {
@@ -285,8 +253,7 @@ export default {
 }
 
 .prose .code-block pre {
-  @apply rounded-2xl;
-  @apply text-base;
+  @apply rounded-2xl shadow-inner;
 }
 
 .prose .code-block .light,
@@ -300,9 +267,7 @@ export default {
 }
 
 .prose hr {
-  @apply border-gray-300;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply border-gray-300 transition-colors duration-150;
 }
 
 .dark .prose hr {
@@ -310,21 +275,15 @@ export default {
 }
 
 .prose thead {
-  @apply border-gray-300;
-  @apply text-black;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply border-gray-300 text-black transition-colors duration-150;
 }
 
 .dark .prose thead {
-  @apply border-gray-800;
-  @apply text-white;
+  @apply border-gray-800  text-white;
 }
 
 .prose tbody tr {
-  @apply border-gray-200;
-  @apply transition-colors;
-  @apply duration-150;
+  @apply border-gray-200 transition-colors duration-150;
 }
 
 .dark tbody tr {

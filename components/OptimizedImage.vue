@@ -17,7 +17,8 @@
 
     <picture
       v-if="isVisible"
-      :class="['absolute inset-0', isLoaded ? 'fade-in' : 'invisible']"
+      :class="['absolute inset-0', { 'xyz-in': isLoaded }]"
+      xyz="fade"
     >
       <source
         :srcset="require(`~/assets/images/${image}?webp`)"
@@ -32,7 +33,7 @@
       />
 
       <img
-        @load.once="() => setIsLoaded(true)"
+        @load.once="setIsLoaded(true)"
         :src="require(`~/assets/images/${image}`)"
         :alt="alt"
         class="w-full h-full object-cover object-center text-transparent"
@@ -73,19 +74,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.fade-in {
-  animation: 1s fade-in;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-</style>

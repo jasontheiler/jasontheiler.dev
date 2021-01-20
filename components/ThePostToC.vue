@@ -35,7 +35,7 @@
       class="fixed lg:hidden right-4 sm:right-6 bottom-4 sm:bottom-6 z-50 p-4 rounded-full bg-gray-900 hover:bg-gray-700 dark:bg-white dark:hover:bg-gray-200 text-white dark:text-gray-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-gray-900 dark:focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900 transition duration-150"
     >
       <svg viewBox="0 0 24 24" class="w-7 h-7 stroke-2 stroke-current">
-        <XyzTransition :duration="150" xyz="fade small" mode="out-in">
+        <XyzTransition xyz="fade" mode="out-in">
           <path
             v-if="isOpen"
             key="close"
