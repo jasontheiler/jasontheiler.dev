@@ -17,8 +17,7 @@
 
     <picture
       v-if="isVisible"
-      :class="['absolute inset-0', { 'xyz-in': isLoaded }]"
-      xyz="fade"
+      :class="['absolute inset-0', , isLoaded ? 'fade-in' : 'invisible']"
     >
       <source
         :srcset="require(`~/assets/images/${image}?webp`)"
@@ -74,3 +73,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.fade-in {
+  animation: 1s fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    @apply opacity-0;
+  }
+
+  100% {
+    @apply opacity-100;
+  }
+}
+</style>
