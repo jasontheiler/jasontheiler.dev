@@ -274,6 +274,10 @@ export default {
   @apply border-gray-800;
 }
 
+.prose table {
+  @apply block overflow-x-auto;
+}
+
 .prose thead {
   @apply border-gray-300 text-black transition-colors duration-150;
 }
