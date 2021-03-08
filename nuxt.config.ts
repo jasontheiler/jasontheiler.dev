@@ -39,7 +39,6 @@ const config: NuxtConfig = {
    */
   css: [
     "@fontsource/inter/latin.css",
-    "@fontsource/neuton/latin.css",
     "@fontsource/cascadia-code/latin-ext.css",
   ],
 
@@ -65,13 +64,13 @@ const config: NuxtConfig = {
    *   - https://typescript.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
    *   - https://color-mode.nuxtjs.org/
-   *   - https://marquez.co/docs/nuxt-optimized-images/
+   *   - https://image.nuxtjs.org/
    */
   buildModules: [
     "@nuxt/typescript-build",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
-    "@aceforth/nuxt-optimized-images",
+    "@nuxt/image",
   ],
 
   /*
@@ -92,14 +91,6 @@ const config: NuxtConfig = {
    */
   colorMode: {
     classSuffix: "",
-  },
-
-  /*
-   * Optimized images configuration
-   * See: https://marquez.co/docs/nuxt-optimized-images/configuration/
-   */
-  optimizedImages: {
-    optimizedImagesInDev: true,
   },
 
   /*

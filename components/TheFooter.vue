@@ -1,8 +1,6 @@
 <template>
   <footer class="w-full max-w-screen-xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
-    <hr
-      class="mb-16 border-t border-gray-300 dark:border-gray-800 transition-colors duration-150"
-    />
+    <hr class="mb-16 border-t border-trueGray-200 dark:border-trueGray-800" />
 
     <div class="flex flex-col justify-between items-center">
       <ul class="mb-8">

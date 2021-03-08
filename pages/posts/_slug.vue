@@ -2,7 +2,7 @@
   <main class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex">
     <article class="lg:w-3/4">
       <h1
-        class="mb-8 font-serif font-bold text-7xl md:text-8xl text-gray-900 dark:text-white transition-colors duration-150"
+        class="mb-8 font-bold text-6xl md:text-7xl text-trueGray-900 dark:text-white"
       >
         {{ post.title }}
       </h1>
@@ -11,9 +11,17 @@
         {{ post.description }}
       </p>
 
-      <OptimizedImage :image="post.image" :alt="post.title" class="mb-16" />
+      <NuxtPicture
+        :src="post.image"
+        :alt="post.title"
+        loading="lazy"
+        class="mb-16 block"
+      />
 
-      <NuxtContent :document="post" class="prose md:prose-lg overflow-hidden" />
+      <NuxtContent
+        :document="post"
+        class="prose sm:prose-lg lg:prose-xl overflow-hidden"
+      />
     </article>
 
     <ThePostToC :toc="post.toc" />
@@ -51,7 +59,7 @@ export default {
       instance: this,
       title,
       description,
-      image: require(`~/assets/images/${image}`),
+      image,
     });
   },
 };
@@ -59,15 +67,15 @@ export default {
 
 <style>
 .prose {
-  @apply max-w-none text-gray-600 transition-colors duration-150;
+  @apply max-w-none text-trueGray-600;
 }
 
 .dark .prose {
-  @apply text-gray-400;
+  @apply text-trueGray-400;
 }
 
 .prose strong {
-  @apply text-black transition-colors duration-150;
+  @apply text-black;
 }
 
 .dark .prose strong {
@@ -75,7 +83,7 @@ export default {
 }
 
 .prose code {
-  @apply text-black transition-colors duration-150;
+  @apply text-black;
 }
 
 .dark .prose code {
@@ -85,7 +93,7 @@ export default {
 .prose a,
 .prose a strong,
 .prose a code {
-  @apply relative text-gray-700 no-underline transition-colors duration-150;
+  @apply relative text-trueGray-700 no-underline transition-colors duration-150;
 }
 
 .prose a:hover,
@@ -97,7 +105,7 @@ export default {
 .dark .prose a,
 .dark .prose a strong,
 .dark .prose a code {
-  @apply text-gray-300;
+  @apply text-trueGray-300;
 }
 
 .dark .prose a:hover,
@@ -124,7 +132,7 @@ export default {
 }
 
 .prose a::after {
-  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-gray-100 leading-4 text-sm text-gray-700 whitespace-nowrap shadow-sm transition duration-150;
+  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-trueGray-100 leading-4 text-sm text-trueGray-700 whitespace-nowrap shadow-sm transition duration-150;
   content: attr(href);
 }
 
@@ -133,14 +141,14 @@ export default {
 }
 
 .dark .prose a::after {
-  @apply bg-gray-1000 text-gray-300;
+  @apply bg-trueGray-1000 text-trueGray-300;
 }
 
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
-  @apply text-black transition-colors duration-150;
+  @apply text-black;
 }
 
 .dark .prose h1,
@@ -166,7 +174,7 @@ export default {
 .prose h4 > a:first-child::before,
 .prose h5 > a:first-child::before,
 .prose h6 > a:first-child::before {
-  @apply static bg-transparent text-gray-400;
+  @apply static bg-transparent text-trueGray-400;
   content: "#";
   margin-right: 0.375em;
 }
@@ -186,7 +194,7 @@ export default {
 .dark .prose h4 > a:first-child::before,
 .dark .prose h5 > a:first-child::before,
 .dark .prose h6 > a:first-child::before {
-  @apply text-gray-600;
+  @apply text-trueGray-600;
 }
 
 .dark .prose h1 > a:first-child:hover::before,
@@ -208,18 +216,26 @@ export default {
 }
 
 .prose ul li::before {
-  @apply bg-gray-400 transition-colors duration-150;
+  @apply bg-trueGray-400;
 }
 
 .dark .prose ul li::before {
-  @apply bg-gray-600;
+  @apply bg-trueGray-600;
 }
 
 .prose ol li::before {
-  @apply text-gray-500;
+  @apply text-trueGray-500;
 }
 
 .prose blockquote {
+  @apply border-trueGray-200 text-trueGray-500;
+}
+
+.dark .prose blockquote {
+  @apply border-trueGray-800;
+}
+
+/* .prose blockquote {
   @apply p-4 rounded-2xl border-none bg-gradient-to-br from-purple-500 to-indigo-500 font-normal not-italic text-white transition-colors duration-150;
   quotes: none;
 }
@@ -234,18 +250,18 @@ export default {
 
 .prose blockquote *:last-child {
   @apply mb-0;
-}
+} */
 
 .prose .code-block {
   @apply relative;
 }
 
 .prose .code-block .file-name {
-  @apply absolute right-0 top-0 px-4 py-2 font-mono text-sm md:text-base text-gray-600;
+  @apply absolute right-0 top-0 px-4 py-2 font-mono text-sm md:text-base text-trueGray-600;
 }
 
 .dark .prose .code-block .file-name {
-  @apply text-gray-400;
+  @apply text-trueGray-400;
 }
 
 .prose .code-block .file-name ~ * pre {
@@ -267,11 +283,11 @@ export default {
 }
 
 .prose hr {
-  @apply border-gray-300 transition-colors duration-150;
+  @apply border-trueGray-300;
 }
 
 .dark .prose hr {
-  @apply border-gray-800;
+  @apply border-trueGray-800;
 }
 
 .prose table {
@@ -279,18 +295,18 @@ export default {
 }
 
 .prose thead {
-  @apply border-gray-300 text-black transition-colors duration-150;
+  @apply border-trueGray-300 text-black;
 }
 
 .dark .prose thead {
-  @apply border-gray-800  text-white;
+  @apply border-trueGray-800  text-white;
 }
 
 .prose tbody tr {
-  @apply border-gray-200 transition-colors duration-150;
+  @apply border-trueGray-200;
 }
 
 .dark tbody tr {
-  @apply border-gray-900;
+  @apply border-trueGray-900;
 }
 </style>

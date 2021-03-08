@@ -3,7 +3,11 @@
     <TheHeroSection />
 
     <section class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <OptimizedImage image="kelp_forest.png" alt="Kelp Forest" />
+      <NuxtPicture
+        src="/images/kelp_forest.png"
+        alt="Kelp Forest"
+        loading="lazy"
+      />
     </section>
   </main>
 </template>

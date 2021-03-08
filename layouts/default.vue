@@ -14,11 +14,11 @@ html {
 }
 
 body {
-  @apply bg-white text-gray-600 transition-colors duration-150;
+  @apply bg-white text-trueGray-600;
 }
 
 .dark body {
-  @apply bg-black text-gray-400;
+  @apply bg-trueGray-1100 text-trueGray-400;
 }
 
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {

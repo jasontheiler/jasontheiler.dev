@@ -150,7 +150,6 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
-        serif: ["Neuton", ...fontFamily.serif],
         mono: ['"Cascadia Code"', ...fontFamily.mono],
       },
     },
@@ -165,6 +164,8 @@ module.exports = {
       translate: ["dark"],
       borderOpacity: ["dark"],
       backgroundOpacity: ["dark"],
+      backgroundImage: ["dark"],
+      gradientColorStops: ["group-hover"],
       outline: ["focus-visible"],
       ringWidth: ["focus-visible"],
       ringColor: ["focus-visible"],
@@ -189,6 +190,7 @@ module.exports = {
     enabled: process.env.NODE_ENV === "production",
     content: [
       "./components/**/*.vue",
+      "./content/**/*.md",
       "./layouts/**/*.vue",
       "./pages/**/*.vue",
       "./plugins/**/*.ts",

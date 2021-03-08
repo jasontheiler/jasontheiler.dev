@@ -4,7 +4,7 @@ description: This is just the first of many tests!
 tags:
   - Test
   - First
-image: kelp_forest.png
+image: /images/kelp_forest.png
 ---
 
 ## Headers
@@ -64,24 +64,24 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 Inline `code` has `back-ticks` around it.
 
-```vue[pages/posts/_slug.vue]
+```vue [pages/posts/_slug.vue]
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const post = await $content("posts", params.slug).fetch()
+    const post = await $content("posts", params.slug).fetch();
     const [prevPost, nextPost] = await $content("posts")
       .only(["slug", "title"])
       .sortBy("createdAt", "asc")
       .surround(params.slug)
-      .fetch()
+      .fetch();
 
     return {
       post,
       prevPost,
       nextPost,
-    }
+    };
   },
-}
+};
 </script>
 ```
 
@@ -130,7 +130,7 @@ The _negotiations_ `were` **short**.
 
 Btw, Rust is awesome!
 
-```rust[main.rs]
+```rust [main.rs]
 use std::io::{self, Write};
 
 fn main() {
@@ -157,7 +157,6 @@ pub fn fib(n: u128) -> u128 {
         _ => fib(n - 2) + fib(n - 1),
     }
 }
-
 ```
 
 </post-blockquote>

@@ -1,13 +1,13 @@
 <template>
   <button
     @click="toggleTheme"
-    class="group w-10 h-6 flex justify-center items-center border-2 border-gray-800 dark:border-indigo-800 border-opacity-50 dark:border-opacity-50 rounded-full bg-gray-900 dark:bg-indigo-900 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-gray-800 dark:focus-visible:ring-indigo-800 focus-visible:ring-offset-4 focus-visible:ring-offset-gray-100 dark:focus-visible:ring-offset-gray-1000 transition duration-150"
+    class="group w-10 h-6 flex justify-center items-center border-2 border-trueGray-800 dark:border-violet-800 border-opacity-50 dark:border-opacity-50 rounded-full bg-trueGray-900 dark:bg-violet-900 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-800 dark:focus-visible:ring-violet-800 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100"
   >
     <div
       class="transform-gpu -translate-x-2 dark:translate-x-2 transition-transform duration-300"
     >
       <div
-        class="w-7 h-7 flex justify-center items-center rounded-full bg-coolGray-600 hover:bg-coolGray-500 dark:bg-indigo-600 dark:group-hover:bg-indigo-500 text-yellow-200 transition-colors duration-150"
+        class="w-7 h-7 flex justify-center items-center rounded-full bg-coolGray-600 hover:bg-coolGray-500 dark:bg-gradient-to-br dark:from-purple-600 dark:to-indigo-600 text-yellow-200"
       >
         <svg viewBox="0 0 20 20" class="w-4 h-4 fill-current">
           <path
