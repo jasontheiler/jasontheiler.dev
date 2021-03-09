@@ -6,11 +6,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  type: {
-    type: String,
-    required: false,
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  props: {
+    type: {
+      type: String,
+      required: false,
+    },
   },
-};
+});
 </script>

@@ -12,15 +12,17 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import { getPageHead } from "~/utils";
 
-export default {
+export default Vue.extend({
   head() {
     return getPageHead({
       instance: this,
       title: "Home",
     });
   },
-};
+});
 </script>

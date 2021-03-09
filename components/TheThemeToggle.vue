@@ -19,13 +19,15 @@
   </button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   methods: {
     toggleTheme() {
       this.$colorMode.preference =
         this.$colorMode.value === "dark" ? "light" : "dark";
     },
   },
-};
+});
 </script>

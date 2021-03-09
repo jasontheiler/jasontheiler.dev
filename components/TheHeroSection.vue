@@ -14,8 +14,10 @@
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   mounted() {
     this.$anime({
       targets: this.$refs.box,
@@ -28,5 +30,5 @@ export default {
       direction: "alternate",
     });
   },
-};
+});
 </script>

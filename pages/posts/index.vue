@@ -8,10 +8,12 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import { getPageHead } from "~/utils";
 
-export default {
+export default Vue.extend({
   async asyncData({ $content }) {
     const posts = await $content("posts").only(["slug", "title"]).fetch();
 
@@ -24,5 +26,5 @@ export default {
       title: "Posts",
     });
   },
-};
+});
 </script>

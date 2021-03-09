@@ -8,9 +8,7 @@
       <NuxtLink to="/" class="font-bold text-2xl"
         ><span class="sm:hidden">J.</span
         ><span class="hidden sm:inline">Jason</span
-        ><span class="text-black dark:text-white"
-          >Theiler</span
-        >
+        ><span class="text-black dark:text-white">Theiler</span>
       </NuxtLink>
 
       <div

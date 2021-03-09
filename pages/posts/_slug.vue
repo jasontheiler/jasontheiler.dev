@@ -30,7 +30,7 @@
 
 <script>
 import { getPageHead } from "~/utils";
-import PostBlockquote from "~/components/PostBlockquote";
+import PostBlockquote from "~/components/PostBlockquote.vue";
 
 export default {
   components: {

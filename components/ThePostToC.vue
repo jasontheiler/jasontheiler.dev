@@ -57,8 +57,10 @@
   </aside>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   props: {
     toc: {
       type: Array,
@@ -71,7 +73,7 @@ export default {
       isOpen: false,
     };
   },
-};
+});
 </script>
 
 <style scoped>
