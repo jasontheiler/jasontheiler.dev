@@ -1,4 +1,4 @@
-import { NuxtConfig } from "@nuxt/types";
+import type { NuxtConfig } from "@nuxt/types";
 import { $content } from "@nuxt/content";
 import { getHighlighter } from "shiki";
 
@@ -47,6 +47,7 @@ const config: NuxtConfig = {
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-plugins/
    */
   plugins: [
+    { src: "~/plugins/animejs.ts", mode: "client" },
     { src: "~/plugins/polyfills.ts", mode: "client" },
     { src: "~/plugins/vue-observe-visibility.ts", mode: "client" },
   ],
