@@ -67,72 +67,40 @@ export default {
 
 <style>
 .prose {
-  @apply max-w-none text-trueGray-600;
-}
-
-.dark .prose {
-  @apply text-trueGray-400;
+  @apply max-w-none text-trueGray-600 dark:text-trueGray-400;
 }
 
 .prose strong {
-  @apply text-black;
-}
-
-.dark .prose strong {
-  @apply text-white;
+  @apply text-black dark:text-white;
 }
 
 .prose code {
-  @apply text-black;
-}
-
-.dark .prose code {
-  @apply text-white;
+  @apply text-black dark:text-white;
 }
 
 .prose a,
 .prose a strong,
 .prose a code {
-  @apply relative text-trueGray-700 no-underline transition-colors duration-150;
+  @apply relative text-trueGray-700 dark:text-trueGray-300 no-underline transition-colors duration-150;
 }
 
 .prose a:hover,
 .prose a:hover strong,
 .prose a:hover code {
-  @apply text-black;
-}
-
-.dark .prose a,
-.dark .prose a strong,
-.dark .prose a code {
-  @apply text-trueGray-300;
-}
-
-.dark .prose a:hover,
-.dark .prose a:hover strong,
-.dark .prose a:hover code {
-  @apply text-white;
+  @apply text-black dark:text-white;
 }
 
 .prose a::before {
-  @apply absolute inset-x-1 -bottom-1.5 h-1  bg-indigo-200 transition-all duration-150;
+  @apply absolute inset-x-1 -bottom-1.5 h-1 bg-indigo-200 dark:bg-indigo-900 transition-all duration-150;
   content: "";
 }
 
 .prose a:hover::before {
-  @apply -inset-x-1 bg-indigo-500;
-}
-
-.dark .prose a::before {
-  @apply bg-indigo-900;
-}
-
-.dark .prose a:hover::before {
-  @apply bg-indigo-700;
+  @apply -inset-x-1 bg-indigo-500 dark:bg-indigo-700;
 }
 
 .prose a::after {
-  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-trueGray-100 leading-4 text-sm text-trueGray-700 whitespace-nowrap shadow-sm transition duration-150;
+  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-trueGray-100 dark:bg-trueGray-1000 leading-4 text-sm text-trueGray-700 dark:text-trueGray-300 whitespace-nowrap shadow-sm transition duration-150;
   content: attr(href);
 }
 
@@ -140,22 +108,11 @@ export default {
   @apply translate-y-2 opacity-100 visible;
 }
 
-.dark .prose a::after {
-  @apply bg-trueGray-1000 text-trueGray-300;
-}
-
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
-  @apply text-black;
-}
-
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4 {
-  @apply text-white;
+  @apply text-black dark:text-white;
 }
 
 .prose h1::before,
@@ -174,7 +131,7 @@ export default {
 .prose h4 > a:first-child::before,
 .prose h5 > a:first-child::before,
 .prose h6 > a:first-child::before {
-  @apply static bg-transparent text-trueGray-400;
+  @apply static bg-transparent text-trueGray-400 dark:text-trueGray-600;
   content: "#";
   margin-right: 0.375em;
 }
@@ -185,25 +142,7 @@ export default {
 .prose h4 > a:first-child:hover::before,
 .prose h5 > a:first-child:hover::before,
 .prose h6 > a:first-child:hover::before {
-  @apply bg-transparent text-black;
-}
-
-.dark .prose h1 > a:first-child::before,
-.dark .prose h2 > a:first-child::before,
-.dark .prose h3 > a:first-child::before,
-.dark .prose h4 > a:first-child::before,
-.dark .prose h5 > a:first-child::before,
-.dark .prose h6 > a:first-child::before {
-  @apply text-trueGray-600;
-}
-
-.dark .prose h1 > a:first-child:hover::before,
-.dark .prose h2 > a:first-child:hover::before,
-.dark .prose h3 > a:first-child:hover::before,
-.dark .prose h4 > a:first-child:hover::before,
-.dark .prose h5 > a:first-child:hover::before,
-.dark .prose h6 > a:first-child:hover::before {
-  @apply bg-transparent text-white;
+  @apply bg-transparent text-black dark:text-white;
 }
 
 .prose h1 > a:first-child::after,
@@ -216,11 +155,7 @@ export default {
 }
 
 .prose ul li::before {
-  @apply bg-trueGray-400;
-}
-
-.dark .prose ul li::before {
-  @apply bg-trueGray-600;
+  @apply bg-trueGray-400 dark:bg-trueGray-600;
 }
 
 .prose ol li::before {
@@ -228,11 +163,7 @@ export default {
 }
 
 .prose blockquote {
-  @apply border-trueGray-200 text-trueGray-500;
-}
-
-.dark .prose blockquote {
-  @apply border-trueGray-800;
+  @apply border-trueGray-200 dark:border-trueGray-800 text-trueGray-500;
 }
 
 /* .prose blockquote {
@@ -257,11 +188,7 @@ export default {
 }
 
 .prose .code-block .file-name {
-  @apply absolute right-0 top-0 px-4 py-2 font-mono text-sm md:text-base text-trueGray-600;
-}
-
-.dark .prose .code-block .file-name {
-  @apply text-trueGray-400;
+  @apply absolute right-0 top-0 px-4 py-2 font-mono text-sm md:text-base text-trueGray-600 dark:text-trueGray-400;
 }
 
 .prose .code-block .file-name ~ * pre {
@@ -283,11 +210,7 @@ export default {
 }
 
 .prose hr {
-  @apply border-trueGray-300;
-}
-
-.dark .prose hr {
-  @apply border-trueGray-800;
+  @apply border-trueGray-300 dark:border-trueGray-800;
 }
 
 .prose table {
@@ -295,18 +218,10 @@ export default {
 }
 
 .prose thead {
-  @apply border-trueGray-300 text-black;
-}
-
-.dark .prose thead {
-  @apply border-trueGray-800  text-white;
+  @apply border-trueGray-300 dark:border-trueGray-800 text-black dark:text-white;
 }
 
 .prose tbody tr {
-  @apply border-trueGray-200;
-}
-
-.dark tbody tr {
-  @apply border-trueGray-900;
+  @apply border-trueGray-200 dark:border-trueGray-900;
 }
 </style>

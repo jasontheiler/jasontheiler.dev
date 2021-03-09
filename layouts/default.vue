@@ -14,11 +14,7 @@ html {
 }
 
 body {
-  @apply bg-white text-trueGray-600;
-}
-
-.dark body {
-  @apply bg-trueGray-1100 text-trueGray-400;
+  @apply bg-white dark:bg-trueGray-1100 text-trueGray-600 dark:text-trueGray-400;
 }
 
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {
