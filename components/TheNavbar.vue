@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 w-full z-30 mb-16 py-1 border-b border-trueGray-200 border-opacity-75 dark:border-trueGray-800 dark:border-opacity-75 bg-white bg-opacity-75 dark:bg-trueGray-1100 dark:bg-opacity-75 blur"
+    class="sticky top-0 w-full z-30 mb-16 py-1 border-b border-trueGray-200 dark:border-trueGray-800 border-opacity-75 dark:border-opacity-75 bg-white dark:bg-trueGray-1100 bg-opacity-75 dark:bg-opacity-75 blur"
   >
     <nav
       class="w-full max-w-screen-xl h-16 mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"

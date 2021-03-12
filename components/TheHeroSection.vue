@@ -19,15 +19,21 @@ import Vue from "vue";
 
 export default Vue.extend({
   mounted() {
-    this.$anime({
+    const tl = this.$anime.timeline({
       targets: this.$refs.box,
-      translateX: ["-20vw", "20vw"],
-      rotate: 360,
-      borderRadius: ["0%", "50%"],
-      easing: "easeInOutElastic",
       duration: 2000,
       loop: true,
-      direction: "alternate",
+    });
+
+    tl.add({
+      translateX: ["-20vw", "20vw"],
+      rotate: 360,
+      borderRadius: "50%",
+    });
+    tl.add({
+      translateX: ["20vw", "-20vw"],
+      rotate: -360,
+      borderRadius: "0%",
     });
   },
 });

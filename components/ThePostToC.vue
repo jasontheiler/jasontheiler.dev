@@ -2,13 +2,15 @@
   <aside class="lg:w-1/4">
     <div
       :class="{ hidden: !isOpen }"
-      @click="isOpen = !isOpen"
-      class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex lg:block transform-gpu lg:transform-none bg-black bg-opacity-25 lg:bg-transparent"
+      @click.self="isOpen = false"
+      class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex flex-row-reverse lg:block blur"
     >
       <div
-        class="z-50 w-full max-w-xs h-full lg:h-auto max-h-full mr-32 px-4 py-8 lg:p-0 lg:pl-16 bg-white dark:bg-trueGray-1100 transition-colors duration-150"
+        class="absolute left-0 inset-y-0 lg:inset-auto z-50 lg:z-auto w-full max-w-xs p-8 lg:p-0 lg:pl-16 border-r lg:border-none border-trueGray-200 dark:border-trueGray-800 bg-white dark:bg-trueGray-1100 overflow-y-auto"
       >
-        <NuxtLink :to="$route.path">Back to the top</NuxtLink>
+        <NuxtLink :to="$route.path" @click.native="isOpen = false"
+          >Back to the top</NuxtLink
+        >
 
         <p>In this post</p>
 
@@ -20,19 +22,20 @@
                 '': depth === 1,
                 '': depth === 2,
                 'ml-4': depth === 3,
+                'bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent':
+                  id === activeItem,
               }"
+              @click.native="isOpen = false"
               >{{ text }}</NuxtLink
             >
           </li>
         </ul>
       </div>
-
-      <div class="sm:1/2 lg:w-auto" />
     </div>
 
     <button
       @click="isOpen = !isOpen"
-      class="fixed lg:hidden right-4 sm:right-6 bottom-4 sm:bottom-6 z-50 p-5 rounded-full bg-trueGray-900 hover:bg-trueGray-700 dark:bg-white dark:hover:bg-trueGray-200 text-white dark:text-trueGray-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-900 dark:focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-900 transition duration-150"
+      class="fixed lg:hidden right-4 sm:right-6 bottom-4 sm:bottom-6 z-50 p-5 rounded-full bg-trueGray-1100 hover:bg-trueGray-800 dark:bg-white dark:hover:bg-trueGray-200 text-white dark:text-trueGray-1100 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-1100 dark:focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
     >
       <svg viewBox="0 0 24 24" class="w-6 h-6 stroke-2 stroke-current">
         <Transition name="button-icon-path">
@@ -58,25 +61,61 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue, { PropOptions } from "vue";
+
+interface ToCEntry {
+  id: string;
+  text: string;
+  depth: number;
+}
+
+interface Data {
+  observer: IntersectionObserver | null;
+  activeItem: string;
+  isOpen: boolean;
+}
 
 export default Vue.extend({
   props: {
     toc: {
       type: Array,
       required: true,
-    },
+    } as PropOptions<ToCEntry[]>,
   },
 
-  data() {
+  data(): Data {
     return {
+      observer: null,
+      activeItem: "",
       isOpen: false,
     };
+  },
+
+  mounted() {
+    this.observer = new IntersectionObserver((entries) => {
+      for (const { target, isIntersecting } of entries) {
+        if (isIntersecting) this.activeItem = target.id;
+      }
+    });
+
+    // Observes all headings with an entry in the table of contents.
+    for (const { id } of this.toc) {
+      const heading = document.getElementById(id);
+      if (heading) this.observer?.observe(heading);
+    }
+  },
+
+  beforeDestroy() {
+    this.observer?.disconnect();
   },
 });
 </script>
 
 <style scoped>
+.blur {
+  backdrop-filter: blur(6px);
+}
+
 .button-icon-path-enter-active,
 .button-icon-path-leave-active {
   @apply transform-gpu origin-center transition duration-300;
