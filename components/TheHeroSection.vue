@@ -32,7 +32,7 @@ export default Vue.extend({
     });
     tl.add({
       translateX: ["20vw", "-20vw"],
-      rotate: -360,
+      rotate: 0,
       borderRadius: "0%",
     });
   },

@@ -67,7 +67,7 @@ export default {
 
 <style>
 .prose {
-  @apply max-w-none text-trueGray-600 dark:text-trueGray-400;
+  @apply max-w-none text-trueGray-700 dark:text-trueGray-300;
 }
 
 .prose strong {

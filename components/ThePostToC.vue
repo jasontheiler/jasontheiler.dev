@@ -3,34 +3,31 @@
     <div
       :class="{ hidden: !isOpen }"
       @click.self="isOpen = false"
-      class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex flex-row-reverse lg:block blur"
+      class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex lg:block blur"
     >
-      <div
-        class="absolute left-0 inset-y-0 lg:inset-auto z-50 lg:z-auto w-full max-w-xs p-8 lg:p-0 lg:pl-16 border-r lg:border-none border-trueGray-200 dark:border-trueGray-800 bg-white dark:bg-trueGray-1100 overflow-y-auto"
+      <nav
+        class="z-50 lg:z-auto w-full max-w-xs h-full mr-24 p-8 lg:p-0 lg:pl-16 border-r lg:border-none border-trueGray-200 dark:border-trueGray-800 bg-white dark:bg-trueGray-1100 overflow-y-auto"
       >
-        <NuxtLink :to="$route.path" @click.native="isOpen = false"
-          >Back to the top</NuxtLink
-        >
+        <a :href="$route.path" @click="isOpen = false">Back to the top</a>
 
         <p>In this post</p>
 
         <ul>
           <li v-for="{ id, depth, text } of toc" :key="id">
-            <NuxtLink
-              :to="`#${id}`"
+            <a
+              :href="`#${id}`"
               :class="{
                 '': depth === 1,
                 '': depth === 2,
                 'ml-4': depth === 3,
-                'bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent':
-                  id === activeItem,
               }"
-              @click.native="isOpen = false"
-              >{{ text }}</NuxtLink
+              @click="isOpen = false"
+              class="scrollactive-item"
+              >{{ text }}</a
             >
           </li>
         </ul>
-      </div>
+      </nav>
     </div>
 
     <button
@@ -69,12 +66,6 @@ interface ToCEntry {
   depth: number;
 }
 
-interface Data {
-  observer: IntersectionObserver | null;
-  activeItem: string;
-  isOpen: boolean;
-}
-
 export default Vue.extend({
   props: {
     toc: {
@@ -83,30 +74,10 @@ export default Vue.extend({
     } as PropOptions<ToCEntry[]>,
   },
 
-  data(): Data {
+  data() {
     return {
-      observer: null,
-      activeItem: "",
       isOpen: false,
     };
-  },
-
-  mounted() {
-    this.observer = new IntersectionObserver((entries) => {
-      for (const { target, isIntersecting } of entries) {
-        if (isIntersecting) this.activeItem = target.id;
-      }
-    });
-
-    // Observes all headings with an entry in the table of contents.
-    for (const { id } of this.toc) {
-      const heading = document.getElementById(id);
-      if (heading) this.observer?.observe(heading);
-    }
-  },
-
-  beforeDestroy() {
-    this.observer?.disconnect();
   },
 });
 </script>
@@ -114,6 +85,10 @@ export default Vue.extend({
 <style scoped>
 .blur {
   backdrop-filter: blur(6px);
+}
+
+.active {
+  @apply bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent;
 }
 
 .button-icon-path-enter-active,

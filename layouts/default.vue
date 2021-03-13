@@ -9,12 +9,8 @@
 </template>
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  @apply bg-white dark:bg-trueGray-1100 text-trueGray-600 dark:text-trueGray-400;
+  @apply bg-white dark:bg-trueGray-1100 text-trueGray-700 dark:text-trueGray-300;
 }
 
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {
