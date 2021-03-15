@@ -121,7 +121,7 @@ export default {
 .prose h4::before,
 .prose h5::before,
 .prose h6::before {
-  @apply h-28 -mt-28 block invisible pointer-events-none;
+  @apply h-24 -mt-24 block invisible pointer-events-none;
   content: "";
 }
 
@@ -163,7 +163,7 @@ export default {
 }
 
 .prose blockquote {
-  @apply border-trueGray-200 dark:border-trueGray-800 text-trueGray-500;
+  @apply border-trueGray-200 dark:border-trueGray-800 text-trueGray-600 dark:text-trueGray-400;
 }
 
 /* .prose blockquote {

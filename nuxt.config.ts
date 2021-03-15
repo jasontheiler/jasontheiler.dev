@@ -29,7 +29,7 @@ const config: NuxtConfig = {
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-head/
    */
   head: {
-    titleTemplate: (title) => `${title} • Jason Theiler`,
+    titleTemplate: (title) => `${title} | Jason Theiler`,
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 

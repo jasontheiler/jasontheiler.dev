@@ -8,21 +8,31 @@
       <nav
         class="z-50 lg:z-auto w-full max-w-xs h-full mr-24 p-8 lg:p-0 lg:pl-16 border-r lg:border-none border-trueGray-200 dark:border-trueGray-800 bg-white dark:bg-trueGray-1100 overflow-y-auto"
       >
-        <a :href="$route.path" @click="isOpen = false">Back to the top</a>
+        <a
+          @click.prevent="
+            isOpen = false;
+            scrollTo();
+          "
+          href="#"
+          >Back to the top</a
+        >
 
-        <p>In this post</p>
+        <p>Table of contents</p>
 
         <ul>
-          <li v-for="{ id, depth, text } of toc" :key="id">
+          <li v-for="{ id, depth, text } in toc" :key="id">
             <a
               :href="`#${id}`"
               :class="{
-                '': depth === 1,
                 '': depth === 2,
                 'ml-4': depth === 3,
+                'bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent':
+                  id === activeEntryId,
               }"
-              @click="isOpen = false"
-              class="scrollactive-item"
+              @click.prevent="
+                isOpen = false;
+                scrollTo(id);
+              "
               >{{ text }}</a
             >
           </li>
@@ -33,6 +43,7 @@
     <button
       @click="isOpen = !isOpen"
       class="fixed lg:hidden right-4 sm:right-6 bottom-4 sm:bottom-6 z-50 p-5 rounded-full bg-trueGray-1100 hover:bg-trueGray-800 dark:bg-white dark:hover:bg-trueGray-200 text-white dark:text-trueGray-1100 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-1100 dark:focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
+      aria-label="Toggle table of contents"
     >
       <svg viewBox="0 0 24 24" class="w-6 h-6 stroke-2 stroke-current">
         <Transition name="button-icon-path">
@@ -58,7 +69,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from "vue";
+import type { PropOptions } from "vue";
+import Vue from "vue";
 
 interface ToCEntry {
   id: string;
@@ -66,18 +78,82 @@ interface ToCEntry {
   depth: number;
 }
 
+type ToC = ToCEntry[];
+
+interface Data {
+  observer: IntersectionObserver | null;
+  activeEntryId: string | null;
+  isOpen: boolean;
+}
+
 export default Vue.extend({
   props: {
     toc: {
       type: Array,
       required: true,
-    } as PropOptions<ToCEntry[]>,
+    } as PropOptions<ToC>,
   },
 
-  data() {
+  data(): Data {
     return {
+      observer: null,
+      activeEntryId: null,
       isOpen: false,
     };
+  },
+
+  mounted() {
+    this.observer = new IntersectionObserver(
+      (headings) => {
+        let minY = window.innerHeight;
+
+        for (const {
+          isIntersecting,
+          boundingClientRect: { y },
+          target: { id },
+        } of headings) {
+          if (isIntersecting && y <= 0) this.activeEntryId = id;
+
+          if (
+            isIntersecting &&
+            y > 0 &&
+            y < window.innerHeight / 2 &&
+            y < minY
+          ) {
+            const idx = this.toc.findIndex((entry) => entry.id === id);
+
+            idx === 0
+              ? (this.activeEntryId = null)
+              : (this.activeEntryId = this.toc[idx - 1].id);
+
+            minY = y;
+          }
+        }
+      },
+      {
+        rootMargin: "-1px 0px 0px 0px",
+        threshold: [0, 1],
+      }
+    );
+
+    // Observes all headings with entries in the table of contents.
+    for (const { id } of this.toc) {
+      const heading = document.getElementById(id);
+      if (heading) this.observer?.observe(heading);
+    }
+  },
+
+  beforeDestroy() {
+    this.observer?.disconnect();
+  },
+
+  methods: {
+    scrollTo(id?: string) {
+      window.scrollTo({
+        top: id ? document.getElementById(id)?.offsetTop : 0,
+        behavior: "smooth",
+      });
+    },
   },
 });
 </script>
@@ -85,10 +161,6 @@ export default Vue.extend({
 <style scoped>
 .blur {
   backdrop-filter: blur(6px);
-}
-
-.active {
-  @apply bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent;
 }
 
 .button-icon-path-enter-active,
