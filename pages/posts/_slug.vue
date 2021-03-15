@@ -115,16 +115,6 @@ export default {
   @apply text-black dark:text-white;
 }
 
-.prose h1::before,
-.prose h2::before,
-.prose h3::before,
-.prose h4::before,
-.prose h5::before,
-.prose h6::before {
-  @apply h-24 -mt-24 block invisible pointer-events-none;
-  content: "";
-}
-
 .prose h1 > a:first-child::before,
 .prose h2 > a:first-child::before,
 .prose h3 > a:first-child::before,

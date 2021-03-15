@@ -63,12 +63,14 @@ const config: NuxtConfig = {
    * See:
    *   - https://nuxtjs.org/guides/configuration-glossary/configuration-modules/
    *   - https://typescript.nuxtjs.org/
+   *   - https://composition-api.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
    *   - https://color-mode.nuxtjs.org/
    *   - https://image.nuxtjs.org/
    */
   buildModules: [
     "@nuxt/typescript-build",
+    "@nuxtjs/composition-api",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@nuxt/image",

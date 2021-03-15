@@ -33,6 +33,12 @@
   </header>
 </template>
 
+<style>
+html {
+  scroll-padding-top: 6rem;
+}
+</style>
+
 <style scoped>
 .blur {
   backdrop-filter: blur(12px);

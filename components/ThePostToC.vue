@@ -27,7 +27,7 @@
                 '': depth === 2,
                 'ml-4': depth === 3,
                 'bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent':
-                  id === activeEntryId,
+                  id === activeEntryId || activeParentEntryIds.includes(id),
               }"
               @click.prevent="
                 isOpen = false;
@@ -102,25 +102,60 @@ export default Vue.extend({
     };
   },
 
+  computed: {
+    scrollPaddingTop(): number {
+      const scrollPaddingTop = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("scroll-padding-top");
+
+      return parseInt(scrollPaddingTop);
+    },
+
+    activeParentEntryIds(): string[] {
+      const activeParentEntryIds: string[] = [];
+
+      let idx = this.findIdxInTocById(this.activeEntryId ?? "");
+
+      if (idx > 0) {
+        let depth = this.toc[idx].depth;
+
+        while (idx > 0 && depth >= 2) {
+          idx--;
+
+          const prevDepth = this.toc[idx].depth;
+
+          if (prevDepth < depth) {
+            activeParentEntryIds.push(this.toc[idx].id);
+            depth = prevDepth;
+          }
+        }
+      }
+
+      return activeParentEntryIds;
+    },
+  },
+
   mounted() {
+    const OFFSET_TOP = 4;
+
     this.observer = new IntersectionObserver(
       (headings) => {
         let minY = window.innerHeight;
 
-        for (const {
-          isIntersecting,
-          boundingClientRect: { y },
-          target: { id },
-        } of headings) {
-          if (isIntersecting && y <= 0) this.activeEntryId = id;
+        for (const { isIntersecting, boundingClientRect, target } of headings) {
+          const { y } = boundingClientRect;
+          const { id } = target;
+
+          if (isIntersecting && y < this.scrollPaddingTop + OFFSET_TOP)
+            this.activeEntryId = id;
 
           if (
             isIntersecting &&
-            y > 0 &&
+            y >= this.scrollPaddingTop + OFFSET_TOP &&
             y < window.innerHeight / 2 &&
             y < minY
           ) {
-            const idx = this.toc.findIndex((entry) => entry.id === id);
+            const idx = this.findIdxInTocById(id);
 
             idx === 0
               ? (this.activeEntryId = null)
@@ -131,7 +166,7 @@ export default Vue.extend({
         }
       },
       {
-        rootMargin: "-1px 0px 0px 0px",
+        rootMargin: `${-(this.scrollPaddingTop + OFFSET_TOP)}px 0px 0px 0px`,
         threshold: [0, 1],
       }
     );
@@ -148,11 +183,15 @@ export default Vue.extend({
   },
 
   methods: {
+    findIdxInTocById(id: string): number {
+      return this.toc.findIndex((entry) => entry.id === id);
+    },
+
     scrollTo(id?: string) {
-      window.scrollTo({
-        top: id ? document.getElementById(id)?.offsetTop : 0,
-        behavior: "smooth",
-      });
+      let top = id ? document.getElementById(id)?.offsetTop : 0;
+      top &&= top - this.scrollPaddingTop;
+
+      window.scrollTo({ top, behavior: "smooth" });
     },
   },
 });
