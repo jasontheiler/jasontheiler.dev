@@ -15,26 +15,41 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import {
+  defineComponent,
+  useContext,
+  ref,
+  onMounted,
+} from "@nuxtjs/composition-api";
 
-export default Vue.extend({
-  mounted() {
-    const tl = this.$anime.timeline({
-      targets: this.$refs.box,
-      duration: 2000,
-      loop: true,
+export default defineComponent({
+  setup() {
+    const { $anime } = useContext();
+
+    const box = ref<HTMLElement | null>(null);
+
+    onMounted(() => {
+      const tl = $anime.timeline({
+        targets: box.value,
+        duration: 2000,
+        loop: true,
+      });
+
+      tl.add({
+        translateX: ["-20vw", "20vw"],
+        rotate: 360,
+        borderRadius: "50%",
+      });
+      tl.add({
+        translateX: ["20vw", "-20vw"],
+        rotate: 0,
+        borderRadius: "0%",
+      });
     });
 
-    tl.add({
-      translateX: ["-20vw", "20vw"],
-      rotate: 360,
-      borderRadius: "50%",
-    });
-    tl.add({
-      translateX: ["20vw", "-20vw"],
-      rotate: 0,
-      borderRadius: "0%",
-    });
+    return {
+      box,
+    };
   },
 });
 </script>

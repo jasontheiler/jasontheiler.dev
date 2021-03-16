@@ -1,5 +1,7 @@
+import { ComponentRenderProxy } from "@nuxtjs/composition-api";
+
 interface Head {
-  instance: Vue;
+  instance: ComponentRenderProxy;
   title: string;
   description?: string;
   image?: string;

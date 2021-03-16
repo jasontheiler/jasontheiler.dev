@@ -1,4 +1,4 @@
-import type { NuxtConfig } from "@nuxt/types";
+import { defineNuxtConfig } from "@nuxtjs/composition-api";
 import { $content } from "@nuxt/content";
 import { getHighlighter } from "shiki";
 
@@ -9,12 +9,22 @@ const { BASE_URL } = process.env;
 
 const baseUrl = fixUrl(BASE_URL ?? "");
 
-const config: NuxtConfig = {
+export default defineNuxtConfig({
   /*
    * Target configuration
-   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-target/
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-target
    */
   target: "static",
+
+  /*
+   * Generate configuration
+   * See:
+   *   - https://nuxtjs.org/guides/configuration-glossary/configuration-generate/
+   *   - https://composition-api.nuxtjs.org/getting-started/setup#quick-start
+   */
+  generate: {
+    interval: 2000,
+  },
 
   /*
    * Public runtime configuration
@@ -201,6 +211,4 @@ const config: NuxtConfig = {
         : getPostPath(posts.slug);
     },
   },
-};
-
-export default config;
+});

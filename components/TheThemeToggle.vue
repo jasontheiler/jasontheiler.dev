@@ -24,15 +24,20 @@
   </button>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script lang="ts" >
+import { defineComponent, useContext } from "@nuxtjs/composition-api";
 
-export default Vue.extend({
-  methods: {
-    toggleTheme() {
-      this.$colorMode.preference =
-        this.$colorMode.value === "dark" ? "light" : "dark";
-    },
+export default defineComponent({
+  setup() {
+    const { $colorMode } = useContext();
+
+    const toggleTheme = () => {
+      $colorMode.preference = $colorMode.value === "dark" ? "light" : "dark";
+    };
+
+    return {
+      toggleTheme,
+    };
   },
 });
 </script>

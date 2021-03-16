@@ -13,11 +13,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "@nuxtjs/composition-api";
 
 import { getPageHead } from "~/utils";
 
-export default Vue.extend({
+export default defineComponent({
   head() {
     return getPageHead({
       instance: this,
