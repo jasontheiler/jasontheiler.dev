@@ -97,3 +97,19 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.blur {
+  backdrop-filter: blur(6px);
+}
+
+.button-icon-path-enter-active,
+.button-icon-path-leave-active {
+  @apply transform-gpu origin-center transition duration-300;
+}
+
+.button-icon-path-enter,
+.button-icon-path-leave-to {
+  @apply scale-50 opacity-0;
+}
+</style>
