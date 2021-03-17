@@ -24,9 +24,9 @@ import {
 
 export default defineComponent({
   setup() {
-    const { $anime } = useContext();
-
     const box = ref<HTMLElement | null>(null);
+
+    const { $anime } = useContext();
 
     onMounted(() => {
       const tl = $anime.timeline({

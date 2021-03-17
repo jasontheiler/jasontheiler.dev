@@ -99,6 +99,14 @@ export default defineNuxtConfig({
   },
 
   /*
+   * Tailwind CSS configuration
+   * See: https://tailwindcss.nuxtjs.org/options
+   */
+  tailwindcss: {
+    jit: true,
+  },
+
+  /*
    * Color mode configuration
    * See: https://color-mode.nuxtjs.org/#configuration
    */

@@ -9,6 +9,14 @@ module.exports = {
   darkMode: "class",
 
   /*
+   * Plugins configuration
+   * See:
+   *   - https://tailwindcss.com/docs/plugins
+   *   - https://tailwindcss.com/docs/typography-plugin
+   */
+  plugins: [require("@tailwindcss/typography")],
+
+  /*
    * Theme configuration
    * See: https://tailwindcss.com/docs/theme
    */
@@ -23,52 +31,11 @@ module.exports = {
           1200: "#060606",
         },
       },
+
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
         mono: ['"Cascadia Code"', ...fontFamily.mono],
       },
     },
-  },
-
-  /*
-   * Variants configuration
-   * See: https://tailwindcss.com/docs/configuring-variants
-   */
-  variants: {
-    extend: {
-      translate: ["dark"],
-      borderOpacity: ["dark"],
-      backgroundOpacity: ["dark"],
-      backgroundImage: ["dark"],
-      outline: ["focus-visible"],
-      ringWidth: ["focus-visible"],
-      ringColor: ["focus-visible"],
-      ringOffsetWidth: ["focus-visible"],
-      ringOffsetColor: ["focus-visible"],
-    },
-  },
-
-  /*
-   * Plugins configuration
-   * See:
-   *   - https://tailwindcss.com/docs/plugins
-   *   - https://tailwindcss.com/docs/typography-plugin
-   */
-  plugins: [require("@tailwindcss/typography")],
-
-  /*
-   * PurgeCSS configuration
-   * See: https://tailwindcss.com/docs/optimizing-for-production
-   */
-  purge: {
-    enabled: process.env.NODE_ENV === "production",
-    content: [
-      "./components/**/*.vue",
-      "./content/**/*.md",
-      "./layouts/**/*.vue",
-      "./pages/**/*.vue",
-      "./plugins/**/*.ts",
-      "./nuxt.config.ts",
-    ],
   },
 };

@@ -24,7 +24,7 @@
       />
     </article>
 
-    <ThePostToC :toc="post.toc" />
+    <ThePostToc :toc="post.toc" />
   </main>
 </template>
 
