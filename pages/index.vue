@@ -15,14 +15,13 @@
 <script lang="ts">
 import { defineComponent } from "@nuxtjs/composition-api";
 
-import { getPageHead } from "~/utils";
+import { useSeo } from "~/composables";
 
 export default defineComponent({
-  head() {
-    return getPageHead({
-      instance: this,
-      title: "Home",
-    });
+  head: {},
+
+  setup() {
+    useSeo({ title: "Home" });
   },
 });
 </script>

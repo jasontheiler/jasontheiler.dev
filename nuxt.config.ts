@@ -118,17 +118,56 @@ export default defineNuxtConfig({
    * Modules
    * See:
    *   - https://nuxtjs.org/guides/configuration-glossary/configuration-modules/
-   *   - https://content.nuxtjs.org/
    *   - https://pwa.nuxtjs.org/
    *   - https://github.com/nuxt-community/robots-module/
    *   - https://github.com/nuxt-community/sitemap-module/
+   *   - https://content.nuxtjs.org/
    */
   modules: [
-    "@nuxt/content",
     "@nuxtjs/pwa",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
+    "@nuxt/content",
   ],
+
+  /*
+   * PWA configuration
+   * See: https://pwa.nuxtjs.org/setup/#configuration
+   */
+  pwa: {
+    manifest: {
+      name: "Jason Theiler",
+      short_name: "J. Theiler",
+      description: "Work in progress!",
+    },
+
+    meta: {
+      author: "Jason Theiler",
+      description: "Work in progress!",
+      ogSiteName: "Jason Theiler",
+      ogTitle: "Jason Theiler",
+      ogHost: baseUrl,
+      ogImage: "/image.png",
+      twitterCard: "summary_large_image",
+    },
+  },
+
+  /*
+   * Sitemap configuration
+   * See: https://github.com/nuxt-community/sitemap-module/#configuration
+   */
+  sitemap: {
+    hostname: baseUrl,
+    async routes() {
+      const posts = await $content("posts").only(["slug"]).fetch();
+
+      const getPostPath = (slug: string) => `/posts/${slug}`;
+
+      return Array.isArray(posts)
+        ? posts.map(({ slug }) => getPostPath(slug))
+        : getPostPath(posts.slug);
+    },
+  },
 
   /*
    * Content configuration
@@ -178,45 +217,6 @@ export default defineNuxtConfig({
           </div>
           `;
       },
-    },
-  },
-
-  /*
-   * PWA configuration
-   * See: https://pwa.nuxtjs.org/setup/#configuration
-   */
-  pwa: {
-    manifest: {
-      name: "Jason Theiler",
-      short_name: "J. Theiler",
-      description: "Work in progress!",
-    },
-
-    meta: {
-      author: "Jason Theiler",
-      description: "Work in progress!",
-      ogSiteName: "Jason Theiler",
-      ogTitle: "Jason Theiler",
-      ogHost: baseUrl,
-      ogImage: "/image.png",
-      twitterCard: "summary_large_image",
-    },
-  },
-
-  /*
-   * Sitemap configuration
-   * See: https://github.com/nuxt-community/sitemap-module/#configuration
-   */
-  sitemap: {
-    hostname: baseUrl,
-    async routes() {
-      const posts = await $content("posts").only(["slug"]).fetch();
-
-      const getPostPath = (slug: string) => `/posts/${slug}`;
-
-      return Array.isArray(posts)
-        ? posts.map(({ slug }) => getPostPath(slug))
-        : getPostPath(posts.slug);
     },
   },
 });

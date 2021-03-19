@@ -1,8 +1,8 @@
 import {
-  ref,
   computed,
-  onMounted,
   onBeforeUnmount,
+  onMounted,
+  ref,
 } from "@nuxtjs/composition-api";
 
 export type Toc = {

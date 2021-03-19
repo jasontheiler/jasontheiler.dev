@@ -9,22 +9,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@nuxtjs/composition-api";
+import {
+  defineComponent,
+  ref,
+  useContext,
+  useStatic,
+} from "@nuxtjs/composition-api";
 
-import { getPageHead } from "~/utils";
+import { useSeo } from "~/composables";
 
 export default defineComponent({
-  async asyncData({ $content }) {
-    const posts = await $content("posts").only(["slug", "title"]).fetch();
+  head: {},
 
-    return { posts };
-  },
+  setup() {
+    useSeo({ title: "Posts" });
 
-  head() {
-    return getPageHead({
-      instance: this,
-      title: "Posts",
-    });
+    const { $content } = useContext();
+
+    const posts = useStatic(
+      () => $content("posts").only(["slug", "title"]).fetch(),
+      ref("posts"),
+      "posts"
+    );
+
+    return {
+      posts,
+    };
   },
 });
 </script>

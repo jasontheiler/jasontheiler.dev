@@ -1,1 +1,2 @@
-export * from "./useToc";
+export * from "./seo";
+export * from "./toc";
