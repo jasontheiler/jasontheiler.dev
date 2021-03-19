@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from "@nuxtjs/composition-api";
-import Vue from "vue";
 import anime from "animejs";
+import Vue from "vue";
 
 declare module "vue/types/vue" {
   interface Vue {

@@ -1,5 +1,8 @@
 <template>
-  <main class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex">
+  <main
+    v-if="post"
+    class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex"
+  >
     <article class="lg:w-3/4">
       <h1
         class="mb-8 font-bold text-6xl md:text-7xl text-trueGray-900 dark:text-white"
@@ -28,41 +31,42 @@
   </main>
 </template>
 
-<script>
-import { getPageHead } from "~/utils";
-import PostBlockquote from "~/components/PostBlockquote.vue";
+<script lang="ts">
+import {
+  computed,
+  defineComponent,
+  useContext,
+  useRoute,
+  useStatic,
+} from "@nuxtjs/composition-api";
 
-export default {
-  components: {
-    PostBlockquote,
-  },
+import { useSeo } from "~/composables";
+import { Post } from "~/types";
 
-  async asyncData({ $content, params }) {
-    const post = await $content("posts", params.slug).fetch();
-    const [prevPost, nextPost] = await $content("posts")
-      .surround(params.slug)
-      .sortBy("createdAt", "asc")
-      .only(["slug", "title"])
-      .fetch();
+export default defineComponent({
+  head: {},
+
+  setup() {
+    const { title, description, image } = useSeo({ title: "Post" });
+
+    const { $content } = useContext();
+    const route = useRoute();
+
+    const post = useStatic(
+      (slug) => $content("posts", slug).fetch() as Promise<Post>,
+      computed(() => route.value.params.slug),
+      "post"
+    );
+
+    title.value = post.value?.title;
+    description.value = post.value?.description;
+    image.value = post.value?.image;
 
     return {
       post,
-      prevPost,
-      nextPost,
     };
   },
-
-  head() {
-    const { title, description, image } = this.post;
-
-    return getPageHead({
-      instance: this,
-      title,
-      description,
-      image,
-    });
-  },
-};
+});
 </script>
 
 <style>

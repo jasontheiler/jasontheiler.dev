@@ -5,11 +5,7 @@ import {
   ref,
 } from "@nuxtjs/composition-api";
 
-export type Toc = {
-  id: string;
-  text: string;
-  depth: number;
-}[];
+import { Toc } from "~/types";
 
 export const useToc = (toc: Toc) => {
   const OFFSET_TOP = 4;

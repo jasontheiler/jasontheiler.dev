@@ -69,11 +69,10 @@
 </template>
 
 <script lang="ts">
-import type { PropType } from "@nuxtjs/composition-api";
-import { defineComponent, ref } from "@nuxtjs/composition-api";
+import { defineComponent, PropType, ref } from "@nuxtjs/composition-api";
 
-import type { Toc } from "~/composables";
 import { useToc } from "~/composables";
+import { Toc } from "~/types";
 
 export default defineComponent({
   props: {
