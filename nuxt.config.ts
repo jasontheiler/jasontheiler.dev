@@ -11,6 +11,14 @@ const baseUrl = fixUrl(BASE_URL ?? "");
 
 export default defineNuxtConfig({
   /*
+   * Dir configuration
+   * See: https://nuxtjs.org/guides/configuration-glossary/configuration-dir
+   */
+  dir: {
+    static: "public",
+  },
+
+  /*
    * Target configuration
    * See: https://nuxtjs.org/guides/configuration-glossary/configuration-target
    */
