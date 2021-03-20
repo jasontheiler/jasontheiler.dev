@@ -1,8 +1,8 @@
 <template>
   <button
-    @click="toggleTheme"
     class="group w-10 h-6 flex justify-center items-center border-2 border-trueGray-800 dark:border-violet-800 border-opacity-50 dark:border-opacity-50 rounded-full bg-trueGray-900 dark:bg-violet-900 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-800 dark:focus-visible:ring-violet-800 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition-colors duration-150"
     aria-label="Toggle theme"
+    @click="toggleTheme"
   >
     <div
       class="transform-gpu -translate-x-2 dark:translate-x-2 transition-transform duration-300"

@@ -6,8 +6,8 @@
       <div class="lg:w-1/2"></div>
       <div class="lg:w-1/2 flex justify-center items-center">
         <div
-          class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600"
           ref="box"
+          class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600"
         />
       </div>
     </div>
