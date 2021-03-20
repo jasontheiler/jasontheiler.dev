@@ -32,6 +32,11 @@ module.exports = {
         },
       },
 
+      spacing: {
+        4.5: "1.125rem",
+        18: "4.5rem",
+      },
+
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
         mono: ['"Cascadia Code"', ...fontFamily.mono],

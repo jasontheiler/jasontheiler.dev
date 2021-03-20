@@ -31,7 +31,11 @@ export default defineComponent({
     const { $content } = useContext();
 
     const posts = useStatic(
-      () => $content("posts").only(["slug", "title"]).fetch<Post>(),
+      () =>
+        $content("posts")
+          .sortBy("createdAt", "asc")
+          .only(["slug", "title"])
+          .fetch<Post>(),
       ref("all"),
       "posts"
     );

@@ -2,11 +2,11 @@
   <aside class="lg:w-1/4">
     <div
       :class="{ hidden: !isOpen }"
-      class="fixed lg:sticky inset-0 lg:inset-auto lg:top-36 z-40 lg:z-auto flex lg:block blur"
+      class="fixed lg:sticky inset-0 lg:inset-auto top-18 lg:top-36 z-40 lg:z-auto flex lg:block"
       @click.self="isOpen = false"
     >
       <nav
-        class="z-50 lg:z-auto w-full max-w-xs h-full mr-24 p-8 lg:p-0 lg:pl-16 border-r lg:border-none border-trueGray-200 dark:border-trueGray-800 bg-white dark:bg-trueGray-1100 overflow-y-auto"
+        class="z-50 lg:z-auto w-full max-w-xs h-full mt-px mr-24 lg:m-auto p-8 lg:p-0 lg:pl-16 border-r lg:border-none border-trueGray-200 dark:border-trueGray-800 border-opacity-75 dark:border-opacity-75 bg-white dark:bg-trueGray-1100 bg-opacity-75 dark:bg-opacity-75 blur overflow-y-auto overscroll-y-contain"
       >
         <a
           href="#"
@@ -99,7 +99,7 @@ export default defineComponent({
 
 <style scoped>
 .blur {
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(12px);
 }
 
 .button-icon-path-enter-active,
