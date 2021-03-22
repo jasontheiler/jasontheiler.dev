@@ -118,15 +118,15 @@ Quote break.
 
 ## Custom components
 
-### Blockquote
+### Box
 
-<post-blockquote>
+<post-box>
 
 The _negotiations_ `were` **short**.
 
-</post-blockquote>
+</post-box>
 
-<post-blockquote>
+<post-box>
 
 Btw, Rust is awesome!
 
@@ -159,4 +159,4 @@ pub fn fib(n: u128) -> u128 {
 }
 ```
 
-</post-blockquote>
+</post-box>

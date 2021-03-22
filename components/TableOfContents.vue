@@ -1,5 +1,5 @@
 <template>
-  <aside class="lg:w-1/4">
+  <aside>
     <div
       :class="{ hidden: !isOpen }"
       class="fixed lg:sticky inset-0 lg:inset-auto top-18 lg:top-36 z-40 lg:z-auto flex lg:block"
@@ -10,6 +10,7 @@
       >
         <a
           href="#"
+          class="hover:text-black dark:hover:text-white transition-colors duration-150"
           @click.prevent="
             isOpen = false;
             scrollToId();
@@ -26,9 +27,10 @@
               :class="{
                 '': depth === 2,
                 'ml-4': depth === 3,
-                'bg-gradient-to-br from-purple-600 to-indigo-600 bg-clip-text text-transparent':
+                'text-violet-600 hover:text-violet-700 dark:text-violet-500 dark:hover:text-violet-400':
                   id === activeItemId || activeParentItemIds.includes(id),
               }"
+              class="hover:text-black dark:hover:text-white transition-colors duration-150"
               @click.prevent="
                 isOpen = false;
                 scrollToId(id);

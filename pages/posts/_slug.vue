@@ -21,13 +21,73 @@
         class="mb-16 block"
       />
 
-      <NuxtContent
-        :document="post"
-        class="prose sm:prose-lg lg:prose-xl overflow-hidden"
-      />
+      <NuxtContent :document="post" class="prose sm:prose-lg" />
+
+      <div
+        v-if="adjacentPosts"
+        class="w-full mt-16 border-t border-trueGray-300 dark:border-trueGray-800 grid grid-cols-1 sm:grid-cols-2 gap-x-8"
+      >
+        <div class="order-1 sm:order-0 flex">
+          <NuxtLink
+            v-if="adjacentPosts[0]"
+            :to="adjacentPosts[0].slug"
+            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-300 hover:border-trueGray-400 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 transition-colors duration-150"
+          >
+            <div
+              class="mb-2 text-sm text-trueGray-600 group-hover:text-trueGray-700 dark:text-trueGray-400 dark:group-hover:text-trueGray-300 text-right transition-colors duration-150"
+            >
+              Previous post
+            </div>
+
+            <div
+              class="flex flex-row justify-end items-center font-semibold text-xl text-violet-600 group-hover:text-violet-700 dark:text-violet-500 dark:group-hover:text-violet-400 transition-colors duration-150"
+            >
+              <svg
+                viewBox="0 0 20 20"
+                class="flex-shrink-0 w-6 h-6 mr-2 fill-current"
+              >
+                <path
+                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                />
+              </svg>
+
+              <span class="truncate">{{ adjacentPosts[0].title }}</span>
+            </div>
+          </NuxtLink>
+        </div>
+
+        <div class="order-0 sm:order-1 flex flex-row-reverse">
+          <NuxtLink
+            v-if="adjacentPosts[1]"
+            :to="adjacentPosts[1].slug"
+            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-300 hover:border-trueGray-400 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 transition-colors duration-150"
+          >
+            <div
+              class="mb-2 text-sm text-trueGray-600 group-hover:text-trueGray-700 dark:text-trueGray-400 dark:group-hover:text-trueGray-300 transition-colors duration-150"
+            >
+              Next post
+            </div>
+
+            <div
+              class="flex flex-row items-center font-semibold text-xl text-violet-600 group-hover:text-violet-700 dark:text-violet-500 dark:group-hover:text-violet-400 transition-colors duration-150"
+            >
+              <span class="truncate">{{ adjacentPosts[1].title }}</span>
+
+              <svg
+                viewBox="0 0 20 20"
+                class="flex-shrink-0 w-6 h-6 ml-2 fill-current"
+              >
+                <path
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                />
+              </svg>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
     </article>
 
-    <ThePostToc :toc="post.toc" />
+    <TableOfContents :toc="post.toc" class="lg:w-1/4" />
   </main>
 </template>
 
@@ -38,6 +98,7 @@ import {
   useContext,
   useRoute,
   useStatic,
+  watchEffect,
 } from "@nuxtjs/composition-api";
 
 import { useSeo } from "~/composables";
@@ -58,12 +119,26 @@ export default defineComponent({
       "post"
     );
 
-    title.value = post.value?.title;
-    description.value = post.value?.description;
-    image.value = post.value?.image;
+    watchEffect(() => {
+      title.value = post.value?.title;
+      description.value = post.value?.description;
+      image.value = post.value?.image;
+    });
+
+    const adjacentPosts = useStatic(
+      (slug) =>
+        $content("posts")
+          .surround(slug)
+          .sortBy("createdAt", "desc")
+          .only(["slug", "title"])
+          .fetch() as Promise<[Post | null, Post | null]>,
+      computed(() => route.value.params.slug),
+      "posts"
+    );
 
     return {
       post,
+      adjacentPosts,
     };
   },
 });
@@ -212,10 +287,10 @@ export default defineComponent({
 }
 
 .prose thead {
-  @apply border-trueGray-300 dark:border-trueGray-800 text-black dark:text-white;
+  @apply border-trueGray-300 dark:border-trueGray-700 text-black dark:text-white;
 }
 
 .prose tbody tr {
-  @apply border-trueGray-200 dark:border-trueGray-900;
+  @apply border-trueGray-200 dark:border-trueGray-800;
 }
 </style>
