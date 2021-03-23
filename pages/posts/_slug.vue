@@ -5,12 +5,12 @@
   >
     <article class="lg:w-3/4">
       <h1
-        class="mb-8 font-bold text-6xl md:text-7xl text-trueGray-900 dark:text-white"
+        class="mb-8 font-bold text-6xl sm:text-7xl text-trueGray-900 dark:text-white"
       >
         {{ post.title }}
       </h1>
 
-      <p class="mb-16 font-medium text-xl md:text-2xl">
+      <p class="mb-16 font-medium text-xl sm:text-2xl">
         {{ post.description }}
       </p>
 
