@@ -5,7 +5,9 @@
   >
     <ul>
       <li v-for="{ slug, title } in posts" :key="slug">
-        <NuxtLink :to="`/posts/${slug}`">{{ title }}</NuxtLink>
+        <NuxtLink :to="{ name: 'posts-slug', params: { slug } }">{{
+          title
+        }}</NuxtLink>
       </li>
     </ul>
   </main>

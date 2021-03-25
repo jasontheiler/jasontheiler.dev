@@ -5,7 +5,7 @@
     <nav
       class="w-full max-w-screen-xl h-18 mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
     >
-      <NuxtLink to="/" class="font-bold text-2xl"
+      <NuxtLink :to="{ name: 'index' }" class="font-bold text-2xl"
         ><span class="sm:hidden">J.</span
         ><span class="hidden sm:inline">Jason</span
         ><span class="text-black dark:text-white">Theiler</span>
@@ -17,7 +17,7 @@
         <ul class="pr-4 sm:pr-6 lg:pr-8 flex font-medium">
           <li class="ml-4 sm:ml-6 lg:ml-8">
             <NuxtLink
-              to="/posts"
+              :to="{ name: 'posts' }"
               active-class="text-black dark:text-white"
               class="hover:text-black dark:hover:text-white transition-colors duration-150"
               >Posts</NuxtLink

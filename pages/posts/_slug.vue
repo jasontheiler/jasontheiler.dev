@@ -30,7 +30,10 @@
         <div class="order-1 sm:order-0 flex">
           <NuxtLink
             v-if="adjacentPosts[0]"
-            :to="adjacentPosts[0].slug"
+            :to="{
+              name: 'posts-slug',
+              params: { slug: adjacentPosts[0].slug },
+            }"
             class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-300 hover:border-trueGray-400 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 transition-colors duration-150"
           >
             <div
@@ -59,7 +62,10 @@
         <div class="order-0 sm:order-1 flex flex-row-reverse">
           <NuxtLink
             v-if="adjacentPosts[1]"
-            :to="adjacentPosts[1].slug"
+            :to="{
+              name: 'posts-slug',
+              params: { slug: adjacentPosts[1].slug },
+            }"
             class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-300 hover:border-trueGray-400 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 transition-colors duration-150"
           >
             <div
