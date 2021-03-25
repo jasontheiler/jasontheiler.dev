@@ -1,17 +1,15 @@
 <template>
-  <footer
-    class="w-full mt-16 py-16 bg-gradient-to-br from-purple-500 dark:from-purple-600 to-indigo-500 dark:to-indigo-600 text-violet-100 dark:text-violet-200"
-  >
-    <div
-      class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between items-center"
-    >
+  <footer class="w-full max-w-screen-xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
+    <hr class="mb-16 border-t border-trueGray-200 dark:border-trueGray-800" />
+
+    <div class="flex flex-col justify-between items-center">
       <ul class="mb-8">
         <li>
           <a
             href="https://github.com/jasontheiler"
             target="_blank"
             rel="nofollow noopener noreferrer"
-            class="hover:text-white transition-colors duration-150"
+            class="hover:text-black dark:hover:text-white transition-colors duration-150"
           >
             <svg viewBox="0 0 24 24" class="w-10 h-10 inline fill-current">
               <title>GitHub</title>
@@ -26,7 +24,10 @@
 
       <p>
         Made with
-        <svg viewBox="0 0 20 20" class="w-6 h-6 mb-1 inline fill-current">
+        <svg
+          viewBox="0 0 20 20"
+          class="w-6 h-6 mb-1 inline text-rose-600 fill-current"
+        >
           <title>Love</title>
 
           <path

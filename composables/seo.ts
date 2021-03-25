@@ -1,5 +1,6 @@
 import {
   computed,
+  Ref,
   ref,
   useContext,
   useMeta,
@@ -7,9 +8,9 @@ import {
 } from "@nuxtjs/composition-api";
 
 export type Seo = {
-  title?: string;
-  description?: string;
-  image?: string;
+  title?: Ref<string | undefined> | string;
+  description?: Ref<string | undefined> | string;
+  image?: Ref<string | undefined> | string;
 };
 
 export const useSeo = (seo?: Seo) => {
