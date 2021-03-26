@@ -2,31 +2,33 @@ import {
   computed,
   onBeforeUnmount,
   onMounted,
+  Ref,
   ref,
+  watchEffect,
 } from "@nuxtjs/composition-api";
 
 import { Toc } from "~/types";
 
-export const useToc = (toc: Toc) => {
-  const OFFSET_TOP = 4;
+const OFFSET_TOP = 4;
 
+export const useToc = (toc: Ref<Toc> | Toc) => {
+  const tocRef = ref(toc);
   const activeItemId = ref<string | null>(null);
-
   const activeParentItemIds = computed(() => {
     const activeParentItemIds: string[] = [];
 
-    let idx = toc.findIndex((item) => item.id === activeItemId.value);
+    let i = tocRef.value.findIndex((item) => item.id === activeItemId.value);
 
-    if (idx > 0) {
-      let depth = toc[idx].depth;
+    if (i > 0) {
+      let depth = tocRef.value[i].depth;
 
-      while (idx > 0 && depth >= 2) {
-        idx--;
+      while (i > 0 && depth >= 2) {
+        i--;
 
-        const prevDepth = toc[idx].depth;
+        const prevDepth = tocRef.value[i].depth;
 
         if (prevDepth < depth) {
-          activeParentItemIds.push(toc[idx].id);
+          activeParentItemIds.push(tocRef.value[i].id);
           depth = prevDepth;
         }
       }
@@ -46,44 +48,45 @@ export const useToc = (toc: Toc) => {
   let observer: IntersectionObserver | null = null;
 
   onMounted(() => {
-    observer = new IntersectionObserver(
-      (entries) => {
-        let minY = window.innerHeight;
+    watchEffect(() => {
+      observer?.disconnect();
+      observer = new IntersectionObserver(
+        (entries) => {
+          let minY = window.innerHeight;
 
-        for (const { isIntersecting, boundingClientRect, target } of entries) {
-          const { y } = boundingClientRect;
-          const { id } = target;
+          for (const {
+            isIntersecting,
+            boundingClientRect: { y },
+            target: { id },
+          } of entries) {
+            const topY = scrollPaddingTop.value + OFFSET_TOP;
+            const midY = window.innerHeight / 2;
 
-          if (isIntersecting && y < scrollPaddingTop.value + OFFSET_TOP)
-            activeItemId.value = id;
+            if (isIntersecting && y < topY) activeItemId.value = id;
 
-          if (
-            isIntersecting &&
-            y >= scrollPaddingTop.value + OFFSET_TOP &&
-            y < window.innerHeight / 2 &&
-            y < minY
-          ) {
-            const idx = toc.findIndex((item) => item.id === id);
+            if (isIntersecting && y >= topY && y < midY && y < minY) {
+              const i = tocRef.value.findIndex((item) => item.id === id);
 
-            idx === 0
-              ? (activeItemId.value = null)
-              : (activeItemId.value = toc[idx - 1].id);
+              if (i === 0) activeItemId.value = null;
+              else activeItemId.value = tocRef.value[i - 1].id;
 
-            minY = y;
+              minY = y;
+            }
           }
+        },
+        {
+          rootMargin: `${-(scrollPaddingTop.value + OFFSET_TOP)}px 0px 0px 0px`,
+          threshold: [0, 1],
         }
-      },
-      {
-        rootMargin: `${-(scrollPaddingTop.value + OFFSET_TOP)}px 0px 0px 0px`,
-        threshold: [0, 1],
-      }
-    );
+      );
 
-    // Observes all elements with corresponding items in the table of contents.
-    for (const { id } of toc) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    }
+      // Observes all elements with corresponding items in the table of
+      // contents.
+      for (const { id } of tocRef.value) {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      }
+    });
   });
 
   onBeforeUnmount(() => observer?.disconnect());

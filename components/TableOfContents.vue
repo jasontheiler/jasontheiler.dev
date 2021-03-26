@@ -71,7 +71,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from "@nuxtjs/composition-api";
+import {
+  defineComponent,
+  PropType,
+  ref,
+  toRefs,
+} from "@nuxtjs/composition-api";
 
 import { useToc } from "~/composables";
 import { Toc } from "~/types";
@@ -85,15 +90,17 @@ export default defineComponent({
   },
 
   setup(props) {
+    const { toc } = toRefs(props);
+
+    const { activeItemId, activeParentItemIds, scrollToId } = useToc(toc);
+
     const isOpen = ref(false);
 
-    const { activeItemId, activeParentItemIds, scrollToId } = useToc(props.toc);
-
     return {
-      isOpen,
       activeItemId,
       activeParentItemIds,
       scrollToId,
+      isOpen,
     };
   },
 });
