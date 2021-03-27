@@ -25,7 +25,7 @@
 
       <div
         v-if="adjacentPosts"
-        class="w-full mt-16 border-t border-trueGray-300 dark:border-trueGray-800 grid grid-cols-1 sm:grid-cols-2 gap-x-8"
+        class="w-full mt-16 border-t border-trueGray-200 dark:border-trueGray-800 grid grid-cols-1 sm:grid-cols-2 gap-x-8"
       >
         <div class="order-1 sm:order-0 flex">
           <NuxtLink
@@ -34,7 +34,7 @@
               name: 'posts-slug',
               params: { slug: adjacentPosts[0].slug },
             }"
-            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-300 hover:border-trueGray-400 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 transition-colors duration-150"
+            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-200 hover:border-trueGray-300 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 focus-visible:outline-none focus-visible:ring focus-visible:ring-violet-600 dark:focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
           >
             <div
               class="mb-2 text-sm text-trueGray-600 group-hover:text-trueGray-700 dark:text-trueGray-400 dark:group-hover:text-trueGray-300 text-right transition-colors duration-150"
@@ -66,7 +66,7 @@
               name: 'posts-slug',
               params: { slug: adjacentPosts[1].slug },
             }"
-            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-300 hover:border-trueGray-400 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 transition-colors duration-150"
+            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-200 hover:border-trueGray-300 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 focus-visible:outline-none focus-visible:ring focus-visible:ring-violet-600 dark:focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
           >
             <div
               class="mb-2 text-sm text-trueGray-600 group-hover:text-trueGray-700 dark:text-trueGray-400 dark:group-hover:text-trueGray-300 transition-colors duration-150"
@@ -258,20 +258,21 @@ export default defineComponent({
   @apply mb-0;
 } */
 
-.prose .code-block {
+.prose .nuxt-content-highlight {
   @apply relative;
 }
 
-.prose .code-block .file-name {
-  @apply absolute right-0 top-0 px-4 py-2 font-mono text-sm md:text-base text-trueGray-600 dark:text-trueGray-400;
+.prose .nuxt-content-highlight .file-name {
+  @apply absolute right-[1.1428571em] sm:right-[1.5em] top-[0.8571429em] sm:top-[1em] font-mono text-[0.875em] sm:text-[0.8888889em] select-none;
 }
 
-.prose .code-block .file-name ~ * pre {
-  @apply pt-8;
+.prose .nuxt-content-highlight .file-name + pre {
+  @apply pt-[2.5em] sm:pt-[2.75em];
 }
 
-.prose .code-block pre {
-  @apply rounded-2xl shadow-inner;
+.prose .nuxt-content-highlight pre {
+  @apply rounded-2xl border border-trueGray-800;
+  @apply bg-trueGray-1000 !important;
 }
 
 .prose .code-block .light,
@@ -285,7 +286,7 @@ export default defineComponent({
 }
 
 .prose hr {
-  @apply border-trueGray-300 dark:border-trueGray-800;
+  @apply border-trueGray-200 dark:border-trueGray-800;
 }
 
 .prose table {

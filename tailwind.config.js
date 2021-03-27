@@ -3,18 +3,18 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   /*
-   * Dark mode configuration
-   * See: https://tailwindcss.com/docs/dark-mode
-   */
-  darkMode: "class",
-
-  /*
    * Plugins configuration
    * See:
    *   - https://tailwindcss.com/docs/plugins
    *   - https://tailwindcss.com/docs/typography-plugin
    */
   plugins: [require("@tailwindcss/typography")],
+
+  /*
+   * Dark mode configuration
+   * See: https://tailwindcss.com/docs/dark-mode
+   */
+  darkMode: "class",
 
   /*
    * Theme configuration
@@ -32,14 +32,14 @@ module.exports = {
         },
       },
 
-      spacing: {
-        4.5: "1.125rem",
-        18: "4.5rem",
-      },
-
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
         mono: ['"Cascadia Code"', ...fontFamily.mono],
+      },
+
+      spacing: {
+        4.5: "1.125rem",
+        18: "4.5rem",
       },
     },
   },

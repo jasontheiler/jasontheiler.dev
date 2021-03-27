@@ -185,45 +185,21 @@ export default defineNuxtConfig({
     liveEdit: false,
     markdown: {
       async highlighter() {
-        const lightHighlighter = await getHighlighter({
-          theme: "github-light",
-        });
-
-        const darkHighlighter = await getHighlighter({
+        const highlighter = await getHighlighter({
           theme: "github-dark",
         });
 
-        interface ThematicBlock {
+        type ThematicBlock = {
           lineHighlights: string | null;
           fileName: string | null;
-        }
+        };
 
         return (rawCode: string, lang: string, thematicBlock?: ThematicBlock) =>
-          `
-          <div class="code-block">
-            ${
-              thematicBlock?.fileName
-                ? `<span class="file-name">${thematicBlock.fileName}</span>`
-                : ""
-            }
-
-            <div class="light">
-              ${
-                lightHighlighter.codeToHtml
-                  ? lightHighlighter.codeToHtml(rawCode, lang)
-                  : ""
-              }
-            </div>
-
-            <div class="dark">
-              ${
-                darkHighlighter.codeToHtml
-                  ? darkHighlighter.codeToHtml(rawCode, lang)
-                  : ""
-              }
-            </div>
-          </div>
-          `;
+          (thematicBlock?.fileName
+            ? `<span class="file-name" style="color:${highlighter.getForegroundColor()};">${
+                thematicBlock.fileName
+              }</span>`
+            : "") + highlighter.codeToHtml(rawCode, lang);
       },
     },
   },

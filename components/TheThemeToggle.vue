@@ -1,6 +1,6 @@
 <template>
   <button
-    class="group w-10 h-6 flex justify-center items-center border-2 border-trueGray-500 dark:border-violet-500 border-opacity-50 dark:border-opacity-50 rounded-full bg-trueGray-400 dark:bg-violet-600 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-500 dark:focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition-colors duration-150"
+    class="group w-10 h-6 flex justify-center items-center border-2 border-trueGray-500 dark:border-violet-500 border-opacity-50 dark:border-opacity-50 rounded-full bg-trueGray-400 dark:bg-violet-600 bg-opacity-50 dark:bg-opacity-50 focus-visible:outline-none focus-visible:ring focus-visible:ring-trueGray-500 dark:focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
     aria-label="Toggle theme"
     @click="toggleTheme"
   >
