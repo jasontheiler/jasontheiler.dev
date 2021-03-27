@@ -49,33 +49,33 @@ export const useToc = (toc: Ref<Toc> | Toc) => {
 
   onMounted(() => {
     watchEffect(() => {
+      const yTop = scrollPaddingTop.value + OFFSET_TOP;
+      const yMid = window.innerHeight / 2;
+
       observer?.disconnect();
       observer = new IntersectionObserver(
         (entries) => {
-          let minY = window.innerHeight;
+          let yMin = window.innerHeight;
 
           for (const {
             isIntersecting,
             boundingClientRect: { y },
             target: { id },
           } of entries) {
-            const topY = scrollPaddingTop.value + OFFSET_TOP;
-            const midY = window.innerHeight / 2;
+            if (isIntersecting && y < yTop) activeItemId.value = id;
 
-            if (isIntersecting && y < topY) activeItemId.value = id;
-
-            if (isIntersecting && y >= topY && y < midY && y < minY) {
+            if (isIntersecting && y >= yTop && y < yMid && y < yMin) {
               const i = tocRef.value.findIndex((item) => item.id === id);
 
               if (i === 0) activeItemId.value = null;
               else activeItemId.value = tocRef.value[i - 1].id;
 
-              minY = y;
+              yMin = y;
             }
           }
         },
         {
-          rootMargin: `${-(scrollPaddingTop.value + OFFSET_TOP)}px 0px 0px 0px`,
+          rootMargin: `${-yTop}px 0px 0px 0px`,
           threshold: [0, 1],
         }
       );
