@@ -21,7 +21,7 @@
         class="mb-16 block"
       />
 
-      <NuxtContent :document="post" class="prose sm:prose-lg" />
+      <NuxtContent :document="post" class="post" />
 
       <div
         v-if="adjacentPosts"
@@ -150,154 +150,152 @@ export default defineComponent({
 });
 </script>
 
-<style>
-.prose {
-  @apply max-w-none text-trueGray-700 dark:text-trueGray-300;
+<style scoped>
+.post {
+  @apply prose sm:prose-lg max-w-none text-trueGray-700 dark:text-trueGray-300;
 }
 
-.prose strong {
+.post strong {
   @apply text-black dark:text-white;
 }
 
-.prose code {
-  @apply text-black dark:text-white;
+.post code {
+  @apply p-[0.375em] rounded-lg border border-trueGray-200 dark:border-trueGray-800 bg-trueGray-50 dark:bg-trueGray-1000 font-normal text-trueGray-700 dark:text-white;
 }
 
-.prose a,
-.prose a strong,
-.prose a code {
+.post code::before,
+.post code::after {
+  content: none;
+}
+
+.post a,
+.post a strong,
+.post a code {
   @apply relative text-trueGray-700 dark:text-trueGray-300 no-underline transition-colors duration-150;
 }
 
-.prose a:hover,
-.prose a:hover strong,
-.prose a:hover code {
+.post a:hover,
+.post a:hover strong,
+.post a:hover code {
   @apply text-black dark:text-white;
 }
 
-.prose a::before {
+.post a::before {
   @apply absolute inset-x-1 -bottom-1.5 h-1 bg-indigo-200 dark:bg-indigo-900 transition-all duration-150;
   content: "";
 }
 
-.prose a:hover::before {
+.post a:hover::before {
   @apply -inset-x-1 bg-indigo-500 dark:bg-indigo-700;
 }
 
-.prose a::after {
+.post a::after {
   @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-trueGray-100 dark:bg-trueGray-1000 leading-4 text-sm text-trueGray-700 dark:text-trueGray-300 whitespace-nowrap shadow-sm transition duration-150;
   content: attr(href);
 }
 
-.prose a:hover::after {
+.post a:hover::after {
   @apply translate-y-2 opacity-100 visible;
 }
 
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4 {
+.post h1,
+.post h2,
+.post h3,
+.post h4 {
   @apply text-black dark:text-white;
 }
 
-.prose h1 > a:first-child::before,
-.prose h2 > a:first-child::before,
-.prose h3 > a:first-child::before,
-.prose h4 > a:first-child::before,
-.prose h5 > a:first-child::before,
-.prose h6 > a:first-child::before {
-  @apply static bg-transparent text-trueGray-400 dark:text-trueGray-600;
+.post h1 > a:first-child::before,
+.post h2 > a:first-child::before,
+.post h3 > a:first-child::before,
+.post h4 > a:first-child::before,
+.post h5 > a:first-child::before,
+.post h6 > a:first-child::before {
+  @apply static mr-[0.375em] bg-transparent text-trueGray-400 dark:text-trueGray-600;
   content: "#";
-  margin-right: 0.375em;
 }
 
-.prose h1 > a:first-child:hover::before,
-.prose h2 > a:first-child:hover::before,
-.prose h3 > a:first-child:hover::before,
-.prose h4 > a:first-child:hover::before,
-.prose h5 > a:first-child:hover::before,
-.prose h6 > a:first-child:hover::before {
+.post h1 > a:first-child:hover::before,
+.post h2 > a:first-child:hover::before,
+.post h3 > a:first-child:hover::before,
+.post h4 > a:first-child:hover::before,
+.post h5 > a:first-child:hover::before,
+.post h6 > a:first-child:hover::before {
   @apply bg-transparent text-black dark:text-white;
 }
 
-.prose h1 > a:first-child::after,
-.prose h2 > a:first-child::after,
-.prose h3 > a:first-child::after,
-.prose h4 > a:first-child::after,
-.prose h5 > a:first-child::after,
-.prose h6 > a:first-child::after {
+.post h1 > a:first-child::after,
+.post h2 > a:first-child::after,
+.post h3 > a:first-child::after,
+.post h4 > a:first-child::after,
+.post h5 > a:first-child::after,
+.post h6 > a:first-child::after {
   @apply left-0 translate-x-0;
 }
 
-.prose ul li::before {
+.post ul li::before {
   @apply bg-trueGray-400 dark:bg-trueGray-600;
 }
 
-.prose ol li::before {
+.post ol li::before {
   @apply text-trueGray-500;
 }
 
-.prose blockquote {
+.post blockquote {
   @apply border-trueGray-200 dark:border-trueGray-800 text-trueGray-600 dark:text-trueGray-400;
 }
 
-/* .prose blockquote {
+/* .post blockquote {
   @apply p-4 rounded-2xl border-none bg-gradient-to-br from-purple-500 to-indigo-500 font-normal not-italic text-white transition-colors duration-150;
   quotes: none;
 }
 
-.dark .prose blockquote {
+.dark .post blockquote {
   @apply from-purple-700 to-indigo-700;
 }
 
-.prose blockquote *:first-child {
+.post blockquote *:first-child {
   @apply mt-0;
 }
 
-.prose blockquote *:last-child {
+.post blockquote *:last-child {
   @apply mb-0;
 } */
 
-.prose .nuxt-content-highlight {
+.post .nuxt-content-highlight {
   @apply relative;
 }
 
-.prose .nuxt-content-highlight .file-name {
+.post .nuxt-content-highlight ::selection {
+  @apply bg-white bg-opacity-25 text-current;
+}
+
+.post .nuxt-content-highlight .file-name {
   @apply absolute right-[1.1428571em] sm:right-[1.5em] top-[0.8571429em] sm:top-[1em] font-mono text-[0.875em] sm:text-[0.8888889em];
 }
 
-.prose .nuxt-content-highlight .file-name + pre {
+.post .nuxt-content-highlight .file-name + pre {
   @apply pt-[2.5em] sm:pt-[2.75em];
 }
 
-.prose .nuxt-content-highlight pre {
+.post .nuxt-content-highlight pre {
   @apply rounded-2xl border border-trueGray-800;
   @apply bg-trueGray-1000 !important;
 }
 
-.prose .code-block .light,
-.dark .prose .code-block .dark {
-  @apply block;
-}
-
-.prose .code-block .dark,
-.dark .prose .code-block .light {
-  @apply hidden;
-}
-
-.prose hr {
+.post hr {
   @apply border-trueGray-200 dark:border-trueGray-800;
 }
 
-.prose table {
+.post table {
   @apply block overflow-x-auto;
 }
 
-.prose thead {
+.post thead {
   @apply border-trueGray-300 dark:border-trueGray-700 text-black dark:text-white;
 }
 
-.prose tbody tr {
+.post tbody tr {
   @apply border-trueGray-200 dark:border-trueGray-800;
 }
 </style>

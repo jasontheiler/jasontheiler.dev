@@ -13,6 +13,10 @@ body {
   @apply bg-white dark:bg-trueGray-1100 text-trueGray-700 dark:text-trueGray-300;
 }
 
+body ::selection {
+  @apply bg-violet-600 dark:bg-violet-500 text-white;
+}
+
 [data-js-focus-visible] :focus:not([data-focus-visible-added]) {
   @apply outline-none;
 }
