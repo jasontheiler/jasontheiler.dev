@@ -263,7 +263,7 @@ export default defineComponent({
 }
 
 .prose .nuxt-content-highlight .file-name {
-  @apply absolute right-[1.1428571em] sm:right-[1.5em] top-[0.8571429em] sm:top-[1em] font-mono text-[0.875em] sm:text-[0.8888889em] select-none;
+  @apply absolute right-[1.1428571em] sm:right-[1.5em] top-[0.8571429em] sm:top-[1em] font-mono text-[0.875em] sm:text-[0.8888889em];
 }
 
 .prose .nuxt-content-highlight .file-name + pre {

@@ -110,25 +110,37 @@ Quote break.
 
 Quote break.
 
-> ```rust
-> use std::io::{self, Write};
->
-> ...
-> ```
-
 ## Custom components
 
 ### Box
 
-<post-box>
+<post-box variant="info">
 
-The _negotiations_ `were` **short**.
+This _is a_ `info` **box**.
+
+</post-box>
+
+<post-box variant="success">
+
+This _is a_ `success` **box**.
+
+</post-box>
+
+<post-box variant="warning">
+
+This _is a_ `warning` **box**.
+
+</post-box>
+
+<post-box variant="danger">
+
+This _is a_ `danger` **box**.
 
 </post-box>
 
 <post-box>
 
-Btw, Rust is awesome!
+This _is a_ `default` **box** with a code block:
 
 ```rust [main.rs]
 use std::io::{self, Write};
