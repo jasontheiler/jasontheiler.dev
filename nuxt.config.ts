@@ -48,7 +48,6 @@ export default defineNuxtConfig({
    */
   head: {
     titleTemplate: (title) => `${title} | Jason Theiler`,
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   /*
@@ -147,16 +146,17 @@ export default defineNuxtConfig({
       name: "Jason Theiler",
       short_name: "J. Theiler",
       description: "Work in progress!",
+      background_color: "#8b5cf6",
     },
 
     meta: {
+      name: "Jason Theiler",
       author: "Jason Theiler",
       description: "Work in progress!",
-      ogSiteName: "Jason Theiler",
-      ogTitle: "Jason Theiler",
       ogHost: baseUrl,
       ogImage: "/image.png",
       twitterCard: "summary_large_image",
+      theme_color: "#8b5cf6",
     },
   },
 
