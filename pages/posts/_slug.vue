@@ -4,9 +4,7 @@
     class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex"
   >
     <article class="lg:w-3/4">
-      <h1
-        class="mb-8 font-bold text-6xl sm:text-7xl text-trueGray-900 dark:text-white"
-      >
+      <h1 class="mb-8 font-bold text-6xl sm:text-7xl text-white">
         {{ post.title }}
       </h1>
 
@@ -25,7 +23,7 @@
 
       <div
         v-if="adjacentPosts"
-        class="w-full mt-16 border-t border-trueGray-200 dark:border-trueGray-800 grid grid-cols-1 sm:grid-cols-2 gap-x-8"
+        class="w-full mt-16 border-t border-trueGray-800 grid grid-cols-1 sm:grid-cols-2 gap-x-8"
       >
         <div class="order-1 sm:order-0 flex">
           <NuxtLink
@@ -34,16 +32,16 @@
               name: 'posts-slug',
               params: { slug: adjacentPosts[0].slug },
             }"
-            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-200 hover:border-trueGray-300 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 focus-visible:outline-none focus-visible:ring focus-visible:ring-violet-600 dark:focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
+            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-800 hover:border-trueGray-700 hover:bg-trueGray-1000 focus-visible:outline-none focus-visible:ring focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-trueGray-1100 transition duration-150"
           >
             <div
-              class="mb-2 text-sm text-trueGray-600 group-hover:text-trueGray-700 dark:text-trueGray-400 dark:group-hover:text-trueGray-300 text-right transition-colors duration-150"
+              class="mb-2 text-sm text-trueGray-400 group-hover:text-trueGray-300 text-right transition-colors duration-150"
             >
               Previous post
             </div>
 
             <div
-              class="flex flex-row justify-end items-center font-semibold text-xl text-violet-600 group-hover:text-violet-700 dark:text-violet-500 dark:group-hover:text-violet-400 transition-colors duration-150"
+              class="flex flex-row justify-end items-center font-semibold text-xl text-violet-500 group-hover:text-violet-400 transition-colors duration-150"
             >
               <svg
                 viewBox="0 0 20 20"
@@ -66,16 +64,16 @@
               name: 'posts-slug',
               params: { slug: adjacentPosts[1].slug },
             }"
-            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-200 hover:border-trueGray-300 dark:border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-50 dark:hover:bg-trueGray-1000 focus-visible:outline-none focus-visible:ring focus-visible:ring-violet-600 dark:focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-trueGray-1100 transition duration-150"
+            class="group w-full sm:w-auto min-w-[50%] mt-8 px-6 py-4 rounded-xl border border-trueGray-800 dark:hover:border-trueGray-700 hover:bg-trueGray-1000 focus-visible:outline-none focus-visible:ring focus-visible:ring-violet-500 focus-visible:ring-offset-4 focus-visible:ring-offset-trueGray-1100 transition duration-150"
           >
             <div
-              class="mb-2 text-sm text-trueGray-600 group-hover:text-trueGray-700 dark:text-trueGray-400 dark:group-hover:text-trueGray-300 transition-colors duration-150"
+              class="mb-2 text-sm text-trueGray-400 group-hover:text-trueGray-300 transition-colors duration-150"
             >
               Next post
             </div>
 
             <div
-              class="flex flex-row items-center font-semibold text-xl text-violet-600 group-hover:text-violet-700 dark:text-violet-500 dark:group-hover:text-violet-400 transition-colors duration-150"
+              class="flex flex-row items-center font-semibold text-xl text-violet-500 group-hover:text-violet-400 transition-colors duration-150"
             >
               <span class="truncate">{{ adjacentPosts[1].title }}</span>
 
@@ -152,15 +150,15 @@ export default defineComponent({
 
 <style scoped>
 .post {
-  @apply prose sm:prose-lg max-w-none text-trueGray-700 dark:text-trueGray-300;
+  @apply prose sm:prose-lg max-w-none text-trueGray-300;
 }
 
 .post strong {
-  @apply text-black dark:text-white;
+  @apply text-white;
 }
 
 .post code {
-  @apply p-[0.375em] rounded-lg border border-trueGray-200 dark:border-trueGray-800 bg-trueGray-50 dark:bg-trueGray-1000 font-normal text-trueGray-700 dark:text-white;
+  @apply p-[0.375em] rounded-lg border border-trueGray-800 bg-trueGray-1000 font-normal text-white;
 }
 
 .post code::before,
@@ -171,26 +169,26 @@ export default defineComponent({
 .post a,
 .post a strong,
 .post a code {
-  @apply relative text-trueGray-700 dark:text-trueGray-300 no-underline transition-colors duration-150;
+  @apply relative text-trueGray-300 no-underline transition-colors duration-150;
 }
 
 .post a:hover,
 .post a:hover strong,
 .post a:hover code {
-  @apply text-black dark:text-white;
+  @apply text-white;
 }
 
 .post a::before {
-  @apply absolute inset-x-1 -bottom-1.5 h-1 bg-indigo-200 dark:bg-indigo-900 transition-all duration-150;
+  @apply absolute inset-x-1 -bottom-1.5 h-1 bg-indigo-900 transition-all duration-150;
   content: "";
 }
 
 .post a:hover::before {
-  @apply -inset-x-1 bg-indigo-500 dark:bg-indigo-700;
+  @apply -inset-x-1 bg-indigo-700;
 }
 
 .post a::after {
-  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-trueGray-100 dark:bg-trueGray-1000 leading-4 text-sm text-trueGray-700 dark:text-trueGray-300 whitespace-nowrap shadow-sm transition duration-150;
+  @apply absolute left-1/2 top-full z-10 px-4 py-2 transform-gpu -translate-x-1/2 opacity-0 invisible rounded-lg bg-trueGray-1000 leading-4 text-sm text-trueGray-300 whitespace-nowrap shadow-sm transition duration-150;
   content: attr(href);
 }
 
@@ -202,7 +200,7 @@ export default defineComponent({
 .post h2,
 .post h3,
 .post h4 {
-  @apply text-black dark:text-white;
+  @apply text-white;
 }
 
 .post h1 > a:first-child::before,
@@ -211,7 +209,7 @@ export default defineComponent({
 .post h4 > a:first-child::before,
 .post h5 > a:first-child::before,
 .post h6 > a:first-child::before {
-  @apply static mr-[0.375em] bg-transparent text-trueGray-400 dark:text-trueGray-600;
+  @apply static mr-[0.375em] bg-transparent text-trueGray-600;
   content: "#";
 }
 
@@ -221,7 +219,7 @@ export default defineComponent({
 .post h4 > a:first-child:hover::before,
 .post h5 > a:first-child:hover::before,
 .post h6 > a:first-child:hover::before {
-  @apply bg-transparent text-black dark:text-white;
+  @apply bg-transparent text-white;
 }
 
 .post h1 > a:first-child::after,
@@ -234,7 +232,7 @@ export default defineComponent({
 }
 
 .post ul li::before {
-  @apply bg-trueGray-400 dark:bg-trueGray-600;
+  @apply bg-trueGray-600;
 }
 
 .post ol li::before {
@@ -242,7 +240,7 @@ export default defineComponent({
 }
 
 .post blockquote {
-  @apply border-trueGray-200 dark:border-trueGray-800 text-trueGray-600 dark:text-trueGray-400;
+  @apply border-trueGray-800 text-trueGray-400;
 }
 
 /* .post blockquote {
@@ -284,7 +282,7 @@ export default defineComponent({
 }
 
 .post hr {
-  @apply border-trueGray-200 dark:border-trueGray-800;
+  @apply border-trueGray-800;
 }
 
 .post table {
@@ -292,10 +290,10 @@ export default defineComponent({
 }
 
 .post thead {
-  @apply border-trueGray-300 dark:border-trueGray-700 text-black dark:text-white;
+  @apply border-trueGray-700 text-white;
 }
 
 .post tbody tr {
-  @apply border-trueGray-200 dark:border-trueGray-800;
+  @apply border-trueGray-800;
 }
 </style>

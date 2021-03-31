@@ -7,7 +7,7 @@
       <div class="lg:w-1/2 flex justify-center items-center">
         <div
           ref="box"
-          class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600"
+          class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500"
         />
       </div>
     </div>

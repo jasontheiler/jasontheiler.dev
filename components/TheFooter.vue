@@ -1,6 +1,6 @@
 <template>
   <footer class="w-full max-w-screen-xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
-    <hr class="mb-16 border-t border-trueGray-200 dark:border-trueGray-800" />
+    <hr class="mb-16 border-t border-trueGray-800" />
 
     <div class="flex flex-col justify-between items-center">
       <ul class="mb-8">
@@ -9,7 +9,7 @@
             href="https://github.com/jasontheiler"
             target="_blank"
             rel="nofollow noopener noreferrer"
-            class="hover:text-black dark:hover:text-white transition-colors duration-150"
+            class="hover:text-white transition-colors duration-150"
           >
             <svg viewBox="0 0 24 24" class="w-10 h-10 inline fill-current">
               <title>GitHub</title>

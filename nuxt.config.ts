@@ -82,14 +82,12 @@ export default defineNuxtConfig({
    *   - https://typescript.nuxtjs.org/
    *   - https://composition-api.nuxtjs.org/
    *   - https://tailwindcss.nuxtjs.org/
-   *   - https://color-mode.nuxtjs.org/
    *   - https://image.nuxtjs.org/
    */
   buildModules: [
     "@nuxt/typescript-build",
     "@nuxtjs/composition-api",
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode",
     "@nuxt/image",
   ],
 
@@ -111,14 +109,6 @@ export default defineNuxtConfig({
    */
   tailwindcss: {
     jit: true,
-  },
-
-  /*
-   * Color mode configuration
-   * See: https://color-mode.nuxtjs.org/#configuration
-   */
-  colorMode: {
-    classSuffix: "",
   },
 
   /*

@@ -11,12 +11,6 @@ module.exports = {
   plugins: [require("@tailwindcss/typography")],
 
   /*
-   * Dark mode configuration
-   * See: https://tailwindcss.com/docs/dark-mode
-   */
-  darkMode: "class",
-
-  /*
    * Theme configuration
    * See: https://tailwindcss.com/docs/theme
    */

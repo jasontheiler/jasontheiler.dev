@@ -33,7 +33,7 @@ export default defineComponent({
 }
 
 .box code {
-  @apply border-trueGray-800 border-opacity-10 dark:border-opacity-10 bg-trueGray-1000 bg-opacity-10 dark:bg-opacity-10 text-white;
+  @apply border-trueGray-800 border-opacity-10 bg-trueGray-1000 bg-opacity-10 text-white;
 }
 
 .info {
